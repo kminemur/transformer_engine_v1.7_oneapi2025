@@ -1,0 +1,13 @@
+/home/intel/project/transformer_engine_v1.7_oneapi2025/transformer_engine/migrated/build/CMakeFiles/edit_cache.dir
+/home/intel/project/transformer_engine_v1.7_oneapi2025/transformer_engine/migrated/build/CMakeFiles/rebuild_cache.dir
+/home/intel/project/transformer_engine_v1.7_oneapi2025/transformer_engine/migrated/build/CMakeFiles/list_install_components.dir
+/home/intel/project/transformer_engine_v1.7_oneapi2025/transformer_engine/migrated/build/CMakeFiles/install.dir
+/home/intel/project/transformer_engine_v1.7_oneapi2025/transformer_engine/migrated/build/CMakeFiles/install/local.dir
+/home/intel/project/transformer_engine_v1.7_oneapi2025/transformer_engine/migrated/build/CMakeFiles/install/strip.dir
+/home/intel/project/transformer_engine_v1.7_oneapi2025/transformer_engine/migrated/build/common/CMakeFiles/transformer_engine.dir
+/home/intel/project/transformer_engine_v1.7_oneapi2025/transformer_engine/migrated/build/common/CMakeFiles/edit_cache.dir
+/home/intel/project/transformer_engine_v1.7_oneapi2025/transformer_engine/migrated/build/common/CMakeFiles/rebuild_cache.dir
+/home/intel/project/transformer_engine_v1.7_oneapi2025/transformer_engine/migrated/build/common/CMakeFiles/list_install_components.dir
+/home/intel/project/transformer_engine_v1.7_oneapi2025/transformer_engine/migrated/build/common/CMakeFiles/install.dir
+/home/intel/project/transformer_engine_v1.7_oneapi2025/transformer_engine/migrated/build/common/CMakeFiles/install/local.dir
+/home/intel/project/transformer_engine_v1.7_oneapi2025/transformer_engine/migrated/build/common/CMakeFiles/install/strip.dir
