@@ -11,9 +11,9 @@ list(APPEND transformer_engine_SOURCES
     #  transpose/cast_transpose_fusion.dp.cpp # ok 
     #  transpose/transpose_fusion.dp.cpp # ok 
     #  transpose/multi_cast_transpose.dp.cpp # ok
-     activation/gelu.dp.cpp # ok
-     activation/relu.dp.cpp # ok
-     activation/swiglu.dp.cpp # ok
+    # activation/gelu.dp.cpp # ok
+    # activation/relu.dp.cpp # ok
+    # activation/swiglu.dp.cpp # ok
     # # #  fused_attn/fused_attn_f16_max512_seqlen.dp.cpp # need to fix cuda-front ends
     # # #  fused_attn/fused_attn_f16_arbitrary_seqlen.dp.cpp # need to fix cuda-front ends
     # # #  fused_attn/fused_attn_fp8.dp.cpp # need to fix cuda-front ends
@@ -31,9 +31,9 @@ list(APPEND transformer_engine_SOURCES
     #  util/cuda_runtime.dp.cpp # ok
     # #  util/rtc.dp.cpp # rtc is not supported yet
     #  util/system.dp.cpp # ok
-     fused_softmax/scaled_masked_softmax.dp.cpp # ok
-     fused_softmax/scaled_upper_triang_masked_softmax.dp.cpp # ok
-     fused_softmax/scaled_aligned_causal_masked_softmax.dp.cpp # ok
+    # fused_softmax/scaled_masked_softmax.dp.cpp # ok
+    # fused_softmax/scaled_upper_triang_masked_softmax.dp.cpp # ok
+    # fused_softmax/scaled_aligned_causal_masked_softmax.dp.cpp # ok
     #  fused_rope/fused_rope.dp.cpp # ok
     #  recipe/delayed_scaling.dp.cpp #ok
      )
@@ -74,7 +74,7 @@ make_string_header("${cuda_include_path}"
 #                              string_code_transpose_rtc_cast_transpose_sycl)
 # make_string_header_from_file(transpose/rtc/transpose.dp.cpp
 #                              string_code_transpose_rtc_transpose_sycl)
-make_string_header_from_file(utils.dp.hpp
+make_string_header_from_file(utils.hpp
                              string_code_utils_sycl)
 target_include_directories(transformer_engine PRIVATE
                            "${CMAKE_CURRENT_BINARY_DIR}/string_headers")
