@@ -5,7 +5,7 @@
 # Configure Transformer Engine library
 set(transformer_engine_SOURCES)
 list(APPEND transformer_engine_SOURCES
-     transformer_engine.dp.cpp # ok 
+     transformer_engine.cpp # ok 
     # #  transpose/cast_transpose.dp.cpp # ok but requires rtc files
     # #  transpose/transpose.dp.cpp # ok but requires rtc files
     #  transpose/cast_transpose_fusion.dp.cpp # ok 
