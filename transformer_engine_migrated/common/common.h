@@ -55,8 +55,8 @@ using int32 = int32_t;
 using fp32 = float;
 using fp16 = sycl::half;
 using bf16 = sycl::ext::oneapi::bfloat16;
-using fp8e4m3 = __nv_fp8_e4m3;
-using fp8e5m2 = __nv_fp8_e5m2;
+//using fp8e4m3 = __nv_fp8_e4m3;
+//using fp8e5m2 = __nv_fp8_e5m2;
 
 namespace detail {
 
@@ -69,8 +69,8 @@ TRANSFORMER_ENGINE_TYPE_NAME(int32_t)
 TRANSFORMER_ENGINE_TYPE_NAME(float)
 TRANSFORMER_ENGINE_TYPE_NAME(half)
 TRANSFORMER_ENGINE_TYPE_NAME(nv_bfloat16)
-TRANSFORMER_ENGINE_TYPE_NAME(__nv_fp8_e4m3)
-TRANSFORMER_ENGINE_TYPE_NAME(__nv_fp8_e5m2)
+//TRANSFORMER_ENGINE_TYPE_NAME(__nv_fp8_e4m3)
+//TRANSFORMER_ENGINE_TYPE_NAME(__nv_fp8_e5m2)
 #undef TRANSFORMER_ENGINE_TYPE_NAME
 
 }  // namespace detail
@@ -81,9 +81,9 @@ struct TypeInfo{
                              int32,
                              fp32,
                              fp16,
-                             bf16,
-                             fp8e4m3,
-                             fp8e5m2>;
+                             bf16>;
+                             //fp8e4m3,
+                             //fp8e5m2>;
 
     template <typename U, DType current>
     struct Helper {
@@ -289,11 +289,11 @@ inline int log2_ceil(int value) {
 template <typename T>
 struct is_fp8 : std::false_type {};
 
-template <>
-struct is_fp8<fp8e4m3> : std::true_type {};
+//template <>
+//struct is_fp8<fp8e4m3> : std::true_type {};
 
-template <>
-struct is_fp8<fp8e5m2> : std::true_type {};
+//template <>
+//struct is_fp8<fp8e5m2> : std::true_type {};
 
 size_t typeToSize(const DType type);
 
