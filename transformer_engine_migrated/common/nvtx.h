@@ -18,14 +18,14 @@ struct NVTXWrapper {
     /*
     DPCT1007:2: Migration of nvtxRangePushA is not supported.
     */
-    nvtxRangePush(name.c_str());
+    //nvtxRangePush(name.c_str());
   }
 
   ~NVTXWrapper() {
     /*
     DPCT1007:3: Migration of nvtxRangePop is not supported.
     */
-    nvtxRangePop();
+    //nvtxRangePop();
   }
 };
 
