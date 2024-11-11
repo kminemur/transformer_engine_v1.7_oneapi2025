@@ -11,9 +11,9 @@ list(APPEND transformer_engine_SOURCES
     #  transpose/cast_transpose_fusion.dp.cpp # ok 
     #  transpose/transpose_fusion.dp.cpp # ok 
     #  transpose/multi_cast_transpose.dp.cpp # ok
-     activation/gelu.dp.cpp # ok
-     activation/relu.dp.cpp # ok
-     activation/swiglu.dp.cpp # ok
+     activation/gelu.cpp # ok
+     activation/relu.cpp # ok
+     activation/swiglu.cpp # ok
     # # #  fused_attn/fused_attn_f16_max512_seqlen.dp.cpp # need to fix cuda-front ends
     # # #  fused_attn/fused_attn_f16_arbitrary_seqlen.dp.cpp # need to fix cuda-front ends
     # # #  fused_attn/fused_attn_fp8.dp.cpp # need to fix cuda-front ends
