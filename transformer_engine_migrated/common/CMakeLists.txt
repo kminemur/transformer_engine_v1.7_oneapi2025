@@ -11,9 +11,9 @@ list(APPEND transformer_engine_SOURCES
     #  transpose/cast_transpose_fusion.dp.cpp # ok 
     #  transpose/transpose_fusion.dp.cpp # ok 
     #  transpose/multi_cast_transpose.dp.cpp # ok
-    # activation/gelu.dp.cpp # ok
-    # activation/relu.dp.cpp # ok
-    # activation/swiglu.dp.cpp # ok
+     activation/gelu.dp.cpp # ok
+     activation/relu.dp.cpp # ok
+     activation/swiglu.dp.cpp # ok
     # # #  fused_attn/fused_attn_f16_max512_seqlen.dp.cpp # need to fix cuda-front ends
     # # #  fused_attn/fused_attn_f16_arbitrary_seqlen.dp.cpp # need to fix cuda-front ends
     # # #  fused_attn/fused_attn_fp8.dp.cpp # need to fix cuda-front ends
@@ -67,24 +67,25 @@ function(make_string_header_from_file file_ STRING_NAME)
                    "string_headers/${STRING_NAME}.h"
                    @ONLY)
 endfunction()
-list(GET CMAKE_CUDA_TOOLKIT_INCLUDE_DIRECTORIES 0 cuda_include_path)
-make_string_header("${cuda_include_path}"
-                   string_path_cuda_include)
+
+#list(GET CMAKE_CUDA_TOOLKIT_INCLUDE_DIRECTORIES 0 cuda_include_path)
+#make_string_header("${cuda_include_path}"
+	#                   string_path_cuda_include)
 # make_string_header_from_file(transpose/rtc/cast_transpose.dp.cpp
 #                              string_code_transpose_rtc_cast_transpose_sycl)
 # make_string_header_from_file(transpose/rtc/transpose.dp.cpp
 #                              string_code_transpose_rtc_transpose_sycl)
-make_string_header_from_file(utils.hpp
-                             string_code_utils_sycl)
+#make_string_header_from_file(utils.hpp
+#                             string_code_utils_sycl)
 target_include_directories(transformer_engine PRIVATE
                            "${CMAKE_CURRENT_BINARY_DIR}/string_headers")
 
 # Compiler options
-set_source_files_properties(fused_softmax/scaled_masked_softmax.dp.cpp
-                            fused_softmax/scaled_upper_triang_masked_softmax.dp.cpp
-                            fused_softmax/scaled_aligned_causal_masked_softmax.dp.cpp
-                            PROPERTIES
-                            COMPILE_OPTIONS "-ffast-math")
+#set_source_files_properties(fused_softmax/scaled_masked_softmax.dp.cpp
+#                            fused_softmax/scaled_upper_triang_masked_softmax.dp.cpp
+#                            fused_softmax/scaled_aligned_causal_masked_softmax.dp.cpp
+#                            PROPERTIES
+#                            COMPILE_OPTIONS "-ffast-math")
 set(CMAKE_SYCL_FLAGS "${CMAKE_SYCL_FLAGS} --expt-relaxed-constexpr")
 set(CMAKE_SYCL_FLAGS "${CMAKE_SYCL_FLAGS} -O3")
 
