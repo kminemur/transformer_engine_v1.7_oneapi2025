@@ -171,8 +171,8 @@ enum class DType {
   kFloat32    = 3,
   kFloat16    = 4,
   kBFloat16   = 5,
-  kFloat8E4M3 = 6,
-  kFloat8E5M2 = 7,
+  //kFloat8E4M3 = 6,
+  //kFloat8E5M2 = 7,
   kNumTypes
 };
 
@@ -288,7 +288,11 @@ class TensorWrapper {
    *
    *  \return A raw pointer to tensor's data.
    */
-  void *dptr() const noexcept {
+  //void *dptr() const noexcept {
+  //  if (tensor_ == nullptr) return nullptr;
+  //  return nvte_tensor_data(tensor_);
+  //}
+  void *dptr() noexcept {
     if (tensor_ == nullptr) return nullptr;
     return nvte_tensor_data(tensor_);
   }
