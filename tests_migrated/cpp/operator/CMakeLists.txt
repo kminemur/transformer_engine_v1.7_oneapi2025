@@ -2,8 +2,7 @@
 #
 # See LICENSE for license information.
 
-add_executable(
-	#test_operator
+add_executable(test_operator
 	#test_qdq.cpp
 	#test_cast_transpose.cpp
 	#test_transpose.cpp
