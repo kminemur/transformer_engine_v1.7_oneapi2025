@@ -106,7 +106,7 @@ class Tensor {
 
   ~Tensor() {
     if (tensor_.dptr() != nullptr) {
-      cudaFree(tensor_.dptr());
+      sycl::free(tensor_.dptr(), queue_);
     }
   }
   NVTETensor data() const noexcept {
@@ -121,17 +121,22 @@ class Tensor {
     return tensor_.dtype();
   }
 
-  void *dptr() const noexcept {
+  //void *dptr() const noexcept {
+  //  return tensor_.dptr();
+  //}
+  void *dptr() noexcept {
     return tensor_.dptr();
   }
 
   template <typename T>
-  T *cpu_dptr() const {
+  //T *cpu_dptr() const {
+  T *cpu_dptr() {
     NVTE_CHECK(TypeInfo<T>::dtype == tensor_.dtype(), "Invalid type!");
     return reinterpret_cast<T *>(cpu_data_.get());
   }
 
-  float amax() const {
+  //float amax() const {
+  float amax() {
     if(amax_cpu_data_) {
       to_cpu();
       return *amax_cpu_data_;
@@ -140,7 +145,8 @@ class Tensor {
     }
   }
 
-  float scale() const {
+  //float scale() const {
+  float scale() {
     if(scale_cpu_data_) {
       to_cpu();
       return *scale_cpu_data_;
@@ -149,7 +155,8 @@ class Tensor {
     }
   }
 
-  float scale_inv() const {
+  //float scale_inv() const {
+  float scale_inv() {
     if(scale_inv_cpu_data_) {
       to_cpu();
       return *scale_inv_cpu_data_;
@@ -158,8 +165,10 @@ class Tensor {
     }
   }
 
-  void to_cpu() const;
-  void from_cpu() const;
+  //void to_cpu() const;
+  //void from_cpu() const;
+  void to_cpu();
+  void from_cpu();
   void set_scale(float scale);
   void set_scale_inv(float scale_inv);
   void shareFP8Meta(const Tensor &other);
@@ -170,6 +179,8 @@ class Tensor {
   std::shared_ptr<float> amax_cpu_data_;
   std::shared_ptr<float> scale_cpu_data_;
   std::shared_ptr<float> scale_inv_cpu_data_;
+
+  sycl::queue queue_;
 };
 
 size_t typeToSize(DType type);
@@ -177,7 +188,9 @@ size_t product(const NVTEShape &shape);
 
 bool areShapesEqual(const NVTEShape &s1, const NVTEShape &s2);
 
-void compareResults(const std::string &name, const Tensor &test, const void *ref,
+//void compareResults(const std::string &name, const Tensor &test, const void *ref,
+//                    double atol = 1e-5, double rtol = 1e-8);
+void compareResults(const std::string &name, Tensor &test, const void *ref,
                     double atol = 1e-5, double rtol = 1e-8);
 void compareResults(const std::string &name, const float test, const float ref,
                     double atol = 1e-5, double rtol = 1e-8);
