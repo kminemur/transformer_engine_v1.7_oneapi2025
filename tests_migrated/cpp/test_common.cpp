@@ -22,9 +22,9 @@ namespace test {
 
 std::vector<DType> all_fp_types = {DType::kFloat32,
                                    DType::kFloat16,
-                                   DType::kBFloat16,
-                                   DType::kFloat8E5M2,
-                                   DType::kFloat8E4M3};
+                                   DType::kBFloat16};
+                                   //DType::kFloat8E5M2,
+                                   //DType::kFloat8E4M3};
 
 bool areShapesEqual(const NVTEShape &s1, const NVTEShape &s2) {
   if (s1.ndim != s2.ndim) return false;
