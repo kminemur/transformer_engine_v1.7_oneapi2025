@@ -7,16 +7,14 @@
 #ifndef TRANSFORMER_ENGINE_COMMON_UTIL_RTC_H_
 #define TRANSFORMER_ENGINE_COMMON_UTIL_RTC_H_
 
+#include <sycl/sycl.hpp>
+#include <dpct/dpct.hpp>
 #include <memory>
 #include <mutex>
 #include <string>
 #include <unordered_map>
 #include <utility>
 #include <vector>
-
-#include <cuda.h>
-#include <cuda_runtime_api.h>
-#include <nvrtc.h>
 
 #include "../common.h"
 #include "../util/cuda_driver.h"
@@ -57,25 +55,14 @@ class Kernel {
    * \param[in] args             Kernel arguments
    */
   template <typename... ArgTs>
-  void launch(int device_id,
-              const dim3 grid_dim,
-              const dim3 block_dim,
-              unsigned int shared_mem_bytes,
-              cudaStream_t stream,
-              ArgTs &&... args) {
+  void launch(int device_id, const dpct::dim3 grid_dim,
+              const dpct::dim3 block_dim, unsigned int shared_mem_bytes,
+              dpct::queue_ptr stream, ArgTs &&...args) {
     void* arg_ptrs[] = { const_cast<void*>(static_cast<const void*>(&args))... };
-    NVTE_CALL_CHECK_CUDA_DRIVER(cuLaunchKernel,
-                                get_function(device_id),
-                                grid_dim.x,
-                                grid_dim.y,
-                                grid_dim.z,
-                                block_dim.x,
-                                block_dim.y,
-                                block_dim.z,
-                                shared_mem_bytes,
-                                static_cast<CUstream>(stream),
-                                arg_ptrs,
-                                nullptr);
+    NVTE_CALL_CHECK_CUDA_DRIVER(
+        cuLaunchKernel, get_function(device_id), grid_dim.x, grid_dim.y,
+        grid_dim.z, block_dim.x, block_dim.y, block_dim.z, shared_mem_bytes,
+        static_cast<dpct::queue_ptr>(stream), arg_ptrs, nullptr);
   }
 
   /*! \brief CUDA function for given CUDA device
@@ -83,7 +70,7 @@ class Kernel {
    * Loads the kernel into the device the first time the device is
    * accessed.
    */
-  CUfunction get_function(int device_id);
+  dpct::kernel_function get_function(int device_id);
 
  private:
   /*! \brief Mangled function name */
@@ -99,9 +86,11 @@ class Kernel {
   std::unique_ptr<std::vector<std::once_flag>> init_flags_;
 
   /*! \brief Uninitialized CUDA module */
-  static constexpr CUmodule null_module = static_cast<CUmodule>(nullptr);
+  static constexpr dpct::kernel_library null_module =
+      static_cast<dpct::kernel_library>(nullptr);
   /*! Uninitialized CUDA function */
-  static constexpr CUfunction null_function = static_cast<CUfunction>(nullptr);
+  static constexpr dpct::kernel_function null_function =
+      static_cast<dpct::kernel_function>(nullptr);
 };
 
 /*! \brief Singleton class to manage runtime-compiled CUDA kernels */
@@ -148,12 +137,9 @@ class KernelManager {
    * \param[in] args             Kernel arguments
    */
   template <typename... ArgTs>
-  void launch(const std::string &kernel_label,
-              const dim3 grid_dim,
-              const dim3 block_dim,
-              unsigned int shared_mem_bytes,
-              cudaStream_t stream,
-              ArgTs &&... args) {
+  void launch(const std::string &kernel_label, const dpct::dim3 grid_dim,
+              const dpct::dim3 block_dim, unsigned int shared_mem_bytes,
+              dpct::queue_ptr stream, ArgTs &&...args) {
     const int device_id = cuda::current_device();
     const auto key = get_kernel_cache_key(kernel_label, device_id);
     NVTE_CHECK(kernel_cache_.count(key) > 0,

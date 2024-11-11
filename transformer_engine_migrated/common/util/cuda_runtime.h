@@ -7,7 +7,8 @@
 #ifndef TRANSFORMER_ENGINE_COMMON_UTIL_CUDA_RUNTIME_H_
 #define TRANSFORMER_ENGINE_COMMON_UTIL_CUDA_RUNTIME_H_
 
-#include <cuda_runtime_api.h>
+#include <sycl/sycl.hpp>
+#include <dpct/dpct.hpp>
 #include <string>
 
 namespace transformer_engine {

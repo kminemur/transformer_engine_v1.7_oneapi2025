@@ -7,6 +7,8 @@
 #ifndef TRANSFORMER_ENGINE_COMMON_UTIL_SYSTEM_H_
 #define TRANSFORMER_ENGINE_COMMON_UTIL_SYSTEM_H_
 
+#include <sycl/sycl.hpp>
+#include <dpct/dpct.hpp>
 #include <string>
 
 #include "../common.h"

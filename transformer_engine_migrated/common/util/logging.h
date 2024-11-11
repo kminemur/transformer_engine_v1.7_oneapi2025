@@ -7,12 +7,12 @@
 #ifndef TRANSFORMER_ENGINE_COMMON_UTIL_LOGGING_H_
 #define TRANSFORMER_ENGINE_COMMON_UTIL_LOGGING_H_
 
+#include <sycl/sycl.hpp>
+#include <dpct/dpct.hpp>
 #include <stdexcept>
+#include <dpct/blas_utils.hpp>
 
-#include <cublas_v2.h>
-#include <cuda_runtime_api.h>
-#include <cudnn.h>
-#include <nvrtc.h>
+#include <dpct/dnnl_utils.hpp>
 
 #include "../util/string.h"
 
@@ -33,13 +33,10 @@
     }                                                                   \
   } while (false)
 
-#define NVTE_CHECK_CUDA(expr)                                           \
-  do {                                                                  \
-    const cudaError_t status_NVTE_CHECK_CUDA = (expr);                  \
-    if (status_NVTE_CHECK_CUDA != cudaSuccess) {                        \
-      NVTE_ERROR("CUDA Error: ",                                        \
-                 cudaGetErrorString(status_NVTE_CHECK_CUDA));           \
-    }                                                                   \
+#define NVTE_CHECK_CUDA(expr)                                                  \
+  do {                                                                         \
+    const dpct::err0 status_NVTE_CHECK_CUDA = (expr);                          \
+                                                                               \
   } while (false)
 
 #define NVTE_CHECK_CUBLAS(expr)                                         \

@@ -4,6 +4,8 @@
  * See LICENSE for license information.
  ************************************************************************/
 
+#include <sycl/sycl.hpp>
+#include <dpct/dpct.hpp>
 #include <filesystem>
 #include <mutex>
 
@@ -26,25 +28,40 @@ namespace {
 int num_devices() {
   auto query_num_devices = [] () -> int {
     int count;
-    NVTE_CHECK_CUDA(cudaGetDeviceCount(&count));
+    /*
+    DPCT1009:12: SYCL uses exceptions to report errors and does not use the
+    error codes. The call was replaced by a placeholder string. You need to
+    rewrite this code.
+    */
+    NVTE_CHECK_CUDA(DPCT_CHECK_ERROR(count = dpct::device_count()));
     return count;
   };
   static int num_devices_ = query_num_devices();
   return num_devices_;
 }
 
-int current_device() {
+int current_device() try {
   // Return 0 if CUDA context is not initialized
-  CUcontext context;
+  int context;
   NVTE_CALL_CHECK_CUDA_DRIVER(cuCtxGetCurrent, &context);
-  if (context == nullptr) {
+  if (context == -1) {
     return 0;
   }
 
   // Query device from CUDA runtime
   int device_id;
-  NVTE_CHECK_CUDA(cudaGetDevice(&device_id));
+  /*
+  DPCT1009:15: SYCL uses exceptions to report errors and does not use the error
+  codes. The call was replaced by a placeholder string. You need to rewrite this
+  code.
+  */
+  NVTE_CHECK_CUDA(DPCT_CHECK_ERROR(device_id = dpct::get_current_device_id()));
   return device_id;
+}
+catch (sycl::exception const &exc) {
+  std::cerr << exc.what() << "Exception caught at file:" << __FILE__
+            << ", line:" << __LINE__ << std::endl;
+  std::exit(1);
 }
 
 int sm_arch(int device_id) {
@@ -55,9 +72,19 @@ int sm_arch(int device_id) {
   }
   NVTE_CHECK(0 <= device_id && device_id < num_devices(), "invalid CUDA device ID");
   auto init = [&] () {
-    cudaDeviceProp prop;
-    NVTE_CHECK_CUDA(cudaGetDeviceProperties(&prop, device_id));
-    cache[device_id] = 10*prop.major + prop.minor;
+    dpct::device_info prop;
+    /*
+    DPCT1009:16: SYCL uses exceptions to report errors and does not use the
+    error codes. The call was replaced by a placeholder string. You need to
+    rewrite this code.
+    */
+    NVTE_CHECK_CUDA(
+        DPCT_CHECK_ERROR(dpct::get_device(device_id).get_device_info(prop)));
+    /*
+    DPCT1005:17: The SYCL device version is different from CUDA Compute
+    Compatibility. You may need to rewrite this code.
+    */
+    cache[device_id] = 10 * prop.get_major_version() + prop.get_minor_version();
   };
   std::call_once(flags[device_id], init);
   return cache[device_id];
@@ -71,9 +98,15 @@ int sm_count(int device_id) {
   }
   NVTE_CHECK(0 <= device_id && device_id < num_devices(), "invalid CUDA device ID");
   auto init = [&] () {
-    cudaDeviceProp prop;
-    NVTE_CHECK_CUDA(cudaGetDeviceProperties(&prop, device_id));
-    cache[device_id] = prop.multiProcessorCount;
+    dpct::device_info prop;
+    /*
+    DPCT1009:18: SYCL uses exceptions to report errors and does not use the
+    error codes. The call was replaced by a placeholder string. You need to
+    rewrite this code.
+    */
+    NVTE_CHECK_CUDA(
+        DPCT_CHECK_ERROR(dpct::get_device(device_id).get_device_info(prop)));
+    cache[device_id](prop.set_max_compute_units);
   };
   std::call_once(flags[device_id], init);
   return cache[device_id];

@@ -1,9 +1,13 @@
+#define DPCT_COMPAT_RT_VERSION 12040
 /*************************************************************************
- * Copyright (c) 2022-2024, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+ * Copyright (c) 2022-2024, NVIDIA CORPORATION & AFFILIATES. All rights
+ *reserved.
  *
  * See LICENSE for license information.
  ************************************************************************/
 
+#include <sycl/sycl.hpp>
+#include <dpct/dpct.hpp>
 #include <cstdlib>
 #include <iostream>
 #include <utility>
@@ -33,9 +37,18 @@ inline int max_supported_sm_arch() {
   static int arch_ = -1;
   if (arch_ < 0) {
     int num_archs = 0;
+    /*
+    DPCT1007:19: Migration of nvrtcGetNumSupportedArchs is not supported.
+    */
+    /*
+    DPCT1007:20: Migration of nvrtcGetErrorString is not supported.
+    */
     NVTE_CHECK_NVRTC(nvrtcGetNumSupportedArchs(&num_archs));
     NVTE_CHECK(num_archs > 0, "Could not determine SM archs that NVRTC supports");
     std::vector<int> archs(num_archs);
+    /*
+    DPCT1007:21: Migration of nvrtcGetErrorString is not supported.
+    */
     NVTE_CHECK_NVRTC(nvrtcGetSupportedArchs(archs.data()));
     arch_ = archs.back();
   }
@@ -66,18 +79,16 @@ Kernel::~Kernel() {
   for (int device_id=0; device_id<static_cast<int>(modules_.size()); ++device_id) {
     // Unload CUDA modules if needed
     if (modules_[device_id] != null_module) {
-      CUdevice device;
-      CUcontext context;
-      if (cuda_driver::call("cuDeviceGet", &device, device_id)
-          != CUDA_SUCCESS) {
+      int device;
+      int context;
+      if (cuda_driver::call("cuDeviceGet", &device, device_id) != 0) {
         continue;
       }
-      if (cuda_driver::call("cuDevicePrimaryCtxRetain", &context, device)
-          != CUDA_SUCCESS) {
+      if (cuda_driver::call("cuDevicePrimaryCtxRetain", &context, device) !=
+          0) {
         continue;
       }
-      if (cuda_driver::call("cuCtxSetCurrent", context)
-          != CUDA_SUCCESS) {
+      if (cuda_driver::call("cuCtxSetCurrent", context) != 0) {
         continue;
       }
       cuda_driver::call("cuModuleUnload", modules_[device_id]);
@@ -105,12 +116,12 @@ void swap(Kernel& first, Kernel& second) noexcept {
   swap(first.init_flags_, second.init_flags_);
 }
 
-CUfunction Kernel::get_function(int device_id) {
+dpct::kernel_function Kernel::get_function(int device_id) {
   // Load kernel on device if needed
   auto load_on_device = [&] () {
     // Set driver context to proper device
-    CUdevice device;
-    CUcontext context;
+    int device;
+    int context;
     NVTE_CALL_CHECK_CUDA_DRIVER(cuDeviceGet, &device, device_id);
     NVTE_CALL_CHECK_CUDA_DRIVER(cuDevicePrimaryCtxRetain, &context, device);
     NVTE_CALL_CHECK_CUDA_DRIVER(cuCtxSetCurrent, context);
@@ -152,7 +163,8 @@ void KernelManager::compile(const std::string &kernel_label,
   const int device_id = cuda::current_device();
   const int sm_arch_ = cuda::sm_arch(device_id);
   const int compile_sm_arch = std::min(sm_arch_, max_supported_sm_arch());
-  const bool compile_ptx = (CUDA_VERSION <= 11000) || (sm_arch_ != compile_sm_arch);
+  const bool compile_ptx =
+      (DPCT_COMPAT_RT_VERSION <= 11000) || (sm_arch_ != compile_sm_arch);
 
   // Compilation flags
   std::vector<std::string> opts = {
@@ -176,12 +188,20 @@ void KernelManager::compile(const std::string &kernel_label,
   constexpr int num_headers = 1;
   constexpr const char* headers[num_headers] = {string_code_utils_cuh};
   constexpr const char* include_names[num_headers] = {"utils.cuh"};
-  NVTE_CHECK_NVRTC(nvrtcCreateProgram(&program,
-                                      code.c_str(),
-                                      filename.c_str(),
-                                      num_headers,
-                                      headers,
-                                      include_names));
+  /*
+  DPCT1007:22: Migration of nvrtcCreateProgram is not supported.
+  */
+  /*
+  DPCT1007:23: Migration of nvrtcGetErrorString is not supported.
+  */
+  NVTE_CHECK_NVRTC(nvrtcCreateProgram(&program, code.c_str(), filename.c_str(),
+                                      num_headers, headers, include_names));
+  /*
+  DPCT1007:24: Migration of nvrtcAddNameExpression is not supported.
+  */
+  /*
+  DPCT1007:25: Migration of nvrtcGetErrorString is not supported.
+  */
   NVTE_CHECK_NVRTC(nvrtcAddNameExpression(program, kernel_name.c_str()));
   const nvrtcResult compile_result = nvrtcCompileProgram(program,
                                                          opts_ptrs.size(),
@@ -192,31 +212,75 @@ void KernelManager::compile(const std::string &kernel_label,
                                      filename, ":\n");
     const size_t log_offset = log.size();
     size_t log_size;
+    /*
+    DPCT1007:26: Migration of nvrtcGetProgramLogSize is not supported.
+    */
+    /*
+    DPCT1007:27: Migration of nvrtcGetErrorString is not supported.
+    */
     NVTE_CHECK_NVRTC(nvrtcGetProgramLogSize(program, &log_size));
     log.resize(log_offset + log_size);
+    /*
+    DPCT1007:28: Migration of nvrtcGetProgramLog is not supported.
+    */
+    /*
+    DPCT1007:29: Migration of nvrtcGetErrorString is not supported.
+    */
     NVTE_CHECK_NVRTC(nvrtcGetProgramLog(program, &log[log_offset]));
     log.back() = '\n';
     std::cerr << log;
+    /*
+    DPCT1007:30: Migration of nvrtcGetErrorString is not supported.
+    */
     NVTE_CHECK_NVRTC(compile_result);
   }
 
   // Get mangled function name
   const char *mangled_name;
-  NVTE_CHECK_NVRTC(nvrtcGetLoweredName(program,
-                                       kernel_name.c_str(),
-                                       &mangled_name));
+  /*
+  DPCT1007:31: Migration of nvrtcGetLoweredName is not supported.
+  */
+  /*
+  DPCT1007:32: Migration of nvrtcGetErrorString is not supported.
+  */
+  NVTE_CHECK_NVRTC(
+      nvrtcGetLoweredName(program, kernel_name.c_str(), &mangled_name));
 
   // Get compiled code
   std::string compiled_code;
   if (compile_ptx) {
     size_t compiled_size;
+    /*
+    DPCT1007:33: Migration of nvrtcGetPTXSize is not supported.
+    */
+    /*
+    DPCT1007:34: Migration of nvrtcGetErrorString is not supported.
+    */
     NVTE_CHECK_NVRTC(nvrtcGetPTXSize(program, &compiled_size));
     compiled_code.resize(compiled_size);
+    /*
+    DPCT1007:35: Migration of nvrtcGetPTX is not supported.
+    */
+    /*
+    DPCT1007:36: Migration of nvrtcGetErrorString is not supported.
+    */
     NVTE_CHECK_NVRTC(nvrtcGetPTX(program, compiled_code.data()));
   } else {
     size_t compiled_size;
+    /*
+    DPCT1007:37: Migration of nvrtcGetCUBINSize is not supported.
+    */
+    /*
+    DPCT1007:38: Migration of nvrtcGetErrorString is not supported.
+    */
     NVTE_CHECK_NVRTC(nvrtcGetCUBINSize(program, &compiled_size));
     compiled_code.resize(compiled_size);
+    /*
+    DPCT1007:39: Migration of nvrtcGetCUBIN is not supported.
+    */
+    /*
+    DPCT1007:40: Migration of nvrtcGetErrorString is not supported.
+    */
     NVTE_CHECK_NVRTC(nvrtcGetCUBIN(program, compiled_code.data()));
   }
 
@@ -226,6 +290,12 @@ void KernelManager::compile(const std::string &kernel_label,
   kernel_cache_.at(key).get_function(device_id);  // Make sure kernel is available on device
 
   // Clean up
+  /*
+  DPCT1007:41: Migration of nvrtcDestroyProgram is not supported.
+  */
+  /*
+  DPCT1007:42: Migration of nvrtcGetErrorString is not supported.
+  */
   NVTE_CHECK_NVRTC(nvrtcDestroyProgram(&program));
 }
 

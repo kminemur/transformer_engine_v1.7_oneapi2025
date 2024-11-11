@@ -7,6 +7,8 @@
 #ifndef TRANSFORMER_ENGINE_COMMON_UTIL_VECTORIZED_POINTWISE_H_
 #define TRANSFORMER_ENGINE_COMMON_UTIL_VECTORIZED_POINTWISE_H_
 
+#include <sycl/sycl.hpp>
+#include <dpct/dpct.hpp>
 #include <type_traits>
 #include "../common.h"
 #include "../utils.cuh"
@@ -25,18 +27,18 @@ class VectorizedStorage {
     LType aligned;
     DType separate[nvec];  // NOLINT(*)
 
-    inline __device__ vectorized_storage() {}
-    inline __device__ ~vectorized_storage() {}
+    inline vectorized_storage() {}
+    inline ~vectorized_storage() {}
   } scratch_;
 
-  inline __device__ VectorizedStorage() {}
-  inline __device__ VectorizedStorage(const VectorizedStorage<DType, n>& y2) {
+  inline VectorizedStorage() {}
+  inline VectorizedStorage(const VectorizedStorage<DType, n>& y2) {
       scratch_.aligned = y2.scratch_.aligned;
   }
-  inline __device__ VectorizedStorage(const LType &y2) {
+  inline VectorizedStorage(const LType &y2) {
       scratch_.aligned = y2;
   }
-  inline __device__ VectorizedStorage<DType, n>& operator+=(
+  inline VectorizedStorage<DType, n>& operator+=(
       const VectorizedStorage<DType, n>& rhs) {
     #pragma unroll
     for (int i = 0; i < nvec; ++i) {
@@ -44,7 +46,7 @@ class VectorizedStorage {
     }
     return *this;
   }
-  inline __device__ ~VectorizedStorage() {}
+  inline ~VectorizedStorage() {}
 };
 
 // Returns const LType is DType is const
@@ -77,7 +79,7 @@ class VectorizedAccessor {
   int alignment_;
   size_t n_elems_;
 
-  inline __device__ VectorizedAccessor(DType* const ptr, const size_t size) {
+  inline VectorizedAccessor(DType* const ptr, const size_t size) {
     unaligned_ptr_ = ptr;
     if (aligned) {
       alignment_ = 0;
@@ -92,17 +94,17 @@ class VectorizedAccessor {
   }
 
   /* \brief Alignment of the input pointer in elements. */
-  inline __device__ int alignment() const {
+  inline int alignment() const {
     return alignment_;
   }
 
   /* \brief Access to separate elements. */
-  inline __device__ DType* separate() {
+  inline DType* separate() {
     return storage_.scratch_.separate;
   }
 
   /* \brief Number of aligned elements that span the entire input tensor. */
-  inline __device__ size_t num_aligned_elements() const {
+  inline size_t num_aligned_elements() const {
     return n_elems_;
   }
 
@@ -110,7 +112,7 @@ class VectorizedAccessor {
      \param id Aligned index of the element.
      \param N size of the tensor.
   */
-  inline __device__ void load(const size_t id, const size_t N) {
+  inline void load(const size_t id, const size_t N) {
     if (aligned) {
       storage_.scratch_.aligned = aligned_ptr_[id];
     } else {
@@ -136,7 +138,7 @@ class VectorizedAccessor {
 template <typename DType, int nvec, bool aligned = false>
 class VectorizedLoader : public VectorizedAccessor<const DType, nvec, aligned> {
  public:
-  inline __device__ VectorizedLoader(const DType* ptr, const size_t N) :
+  inline VectorizedLoader(const DType* ptr, const size_t N) :
     VectorizedAccessor<const DType, nvec, aligned>(ptr, N) {
   }
 };
@@ -145,7 +147,7 @@ class VectorizedLoader : public VectorizedAccessor<const DType, nvec, aligned> {
 template <typename DType, int nvec, bool aligned = false>
 class VectorizedStorer : public VectorizedAccessor<DType, nvec, aligned> {
  public:
-  inline __device__ VectorizedStorer(DType* ptr, const size_t N) :
+  inline VectorizedStorer(DType* ptr, const size_t N) :
     VectorizedAccessor<DType, nvec, aligned>(ptr, N) {
   }
 
@@ -153,7 +155,7 @@ class VectorizedStorer : public VectorizedAccessor<DType, nvec, aligned> {
      \param id Aligned index of the element.
      \param N size of the tensor.
   */
-  inline __device__ void store(const size_t id, const size_t N) {
+  inline void store(const size_t id, const size_t N) {
     if (aligned) {
       this->aligned_ptr_[id] = this->storage_.scratch_.aligned;
     } else {
@@ -181,14 +183,15 @@ template <int nvec, bool aligned,
           ComputeType (*OP)(ComputeType, const Param&),
           typename InputType,
           typename OutputType>
-__launch_bounds__(unary_kernel_threads)
-__global__ void unary_kernel(const InputType *input,
+
+void unary_kernel(const InputType *input,
                              OutputType *output,
                              const ComputeType *scale,
                              ComputeType *amax,
                              Param p,
                              const size_t N,
-                             const size_t num_aligned_elements) {
+                             const size_t num_aligned_elements,
+                             const sycl::nd_item<3> &item_ct1) {
   VectorizedLoader<InputType, nvec, aligned> loader(input, N);
   VectorizedStorer<OutputType, nvec, aligned> storer(output, N);
   ComputeType max = 0;
@@ -200,9 +203,10 @@ __global__ void unary_kernel(const InputType *input,
 
   const size_t M = num_aligned_elements;
 
-  for (size_t tid = blockIdx.x * blockDim.x + threadIdx.x;
+  for (size_t tid = item_ct1.get_group(2) * item_ct1.get_local_range(2) +
+                    item_ct1.get_local_id(2);
        tid < M;
-       tid += gridDim.x * blockDim.x) {
+       tid += item_ct1.get_group_range(2) * item_ct1.get_local_range(2)) {
     loader.load(tid, N);
 #pragma unroll
     for (int i = 0; i < nvec; ++i) {
@@ -223,7 +227,7 @@ __global__ void unary_kernel(const InputType *input,
     /* warp tile amax reduce*/
     max = reduce_max<unary_kernel_threads / THREADS_PER_WARP>(max, warp_id);
 
-    if (threadIdx.x == 0 && amax != nullptr) {
+    if (item_ct1.get_local_id(2) == 0 && amax != nullptr) {
         static_assert(std::is_same<ComputeType, float>::value);
         atomicMaxFloat(amax, max);
     }
@@ -237,15 +241,16 @@ template <int nvec, bool aligned,
           typename InputType,
           typename InputTypeGrad,
           typename OutputType>
-__launch_bounds__(unary_kernel_threads)
-__global__ void unary_grad_kernel(const InputTypeGrad *grad,
+
+void unary_grad_kernel(const InputTypeGrad *grad,
                                   const InputType *input,
                                   OutputType *output,
                                   const ComputeType *scale,
                                   ComputeType *amax,
                                   Param p,
                                   const size_t N,
-                                  const size_t num_aligned_elements) {
+                                  const size_t num_aligned_elements,
+                                  const sycl::nd_item<3> &item_ct1) {
   VectorizedLoader<InputType, nvec, aligned> loader(input, N);
   VectorizedLoader<InputTypeGrad, nvec, aligned> grad_loader(grad, N);
   VectorizedStorer<OutputType, nvec, aligned> storer(output, N);
@@ -258,9 +263,10 @@ __global__ void unary_grad_kernel(const InputTypeGrad *grad,
 
   const size_t M = num_aligned_elements;
 
-  for (size_t tid = blockIdx.x * blockDim.x + threadIdx.x;
+  for (size_t tid = item_ct1.get_group(2) * item_ct1.get_local_range(2) +
+                    item_ct1.get_local_id(2);
        tid < M;
-       tid += gridDim.x * blockDim.x) {
+       tid += item_ct1.get_group_range(2) * item_ct1.get_local_range(2)) {
     loader.load(tid, N);
     grad_loader.load(tid, N);
 #pragma unroll
@@ -283,7 +289,7 @@ __global__ void unary_grad_kernel(const InputTypeGrad *grad,
     /* warp tile amax reduce*/
     max = reduce_max<unary_kernel_threads / THREADS_PER_WARP>(max, warp_id);
 
-    if (threadIdx.x == 0 && amax != nullptr) {
+    if (item_ct1.get_local_id(2) == 0 && amax != nullptr) {
         static_assert(std::is_same<ComputeType, float>::value);
         atomicMaxFloat(amax, max);
     }
@@ -344,17 +350,12 @@ Alignment CheckAlignment(const size_t lead_dim,
 
 }  // namespace
 
-template <int nvec, typename Param,
-          fp32 (*OP)(const fp32, const Param&),
-          typename InputType,
-          typename OutputType>
-void VectorizedUnaryKernelLauncher(const InputType *input,
-                                   OutputType *output,
-                                   const fp32 *scale,
-                                   fp32 *amax,
-                                   const size_t N,
-                                   const Param params,
-                                   cudaStream_t stream) {
+template <int nvec, typename Param, fp32 (*OP)(const fp32, const Param &),
+          typename InputType, typename OutputType>
+void VectorizedUnaryKernelLauncher(const InputType *input, OutputType *output,
+                                   const fp32 *scale, fp32 *amax,
+                                   const size_t N, const Param params,
+                                   dpct::queue_ptr stream) {
   if (N != 0) {
     auto align = CheckAlignment(N, nvec, input, output);
 
@@ -367,36 +368,64 @@ void VectorizedUnaryKernelLauncher(const InputType *input,
 
     switch (align) {
       case Alignment::SAME_ALIGNED:
-        unary_kernel<nvec, true, fp32, Param, OP><<<num_blocks, threads, 0, stream>>>(
-            input, output, scale, amax, params, N, num_aligned_elements);
+        /*
+        DPCT1049:0: The work-group size passed to the SYCL kernel may exceed the
+        limit. To get the device limit, query info::device::max_work_group_size.
+        Adjust the work-group size if needed.
+        */
+      stream->parallel_for(sycl::nd_range<3>(sycl::range<3>(1, 1, num_blocks) *
+                                                 sycl::range<3>(1, 1, threads),
+                                             sycl::range<3>(1, 1, threads)),
+                           [=](sycl::nd_item<3> item_ct1) {
+                             unary_kernel<nvec, true, fp32, Param, OP>(
+                                 input, output, scale, amax, params, N,
+                                 num_aligned_elements, item_ct1);
+                           });
         break;
       case Alignment::SAME_UNALIGNED:
-        unary_kernel<nvec, false, fp32, Param, OP><<<num_blocks, threads, 0, stream>>>(
-            input, output, scale, amax, params, N, num_aligned_elements);
+        /*
+        DPCT1049:1: The work-group size passed to the SYCL kernel may exceed the
+        limit. To get the device limit, query info::device::max_work_group_size.
+        Adjust the work-group size if needed.
+        */
+      stream->parallel_for(sycl::nd_range<3>(sycl::range<3>(1, 1, num_blocks) *
+                                                 sycl::range<3>(1, 1, threads),
+                                             sycl::range<3>(1, 1, threads)),
+                           [=](sycl::nd_item<3> item_ct1) {
+                             unary_kernel<nvec, false, fp32, Param, OP>(
+                                 input, output, scale, amax, params, N,
+                                 num_aligned_elements, item_ct1);
+                           });
         break;
       case Alignment::DIFFERENT: {
         // If the pointers are aligned differently we cannot vectorize
-        unary_kernel<1, true, fp32, Param, OP><<<num_blocks, threads, 0, stream>>>(
-            input, output, scale, amax, params, N, N);
+        /*
+        DPCT1049:2: The work-group size passed to the SYCL kernel may exceed the
+        limit. To get the device limit, query info::device::max_work_group_size.
+        Adjust the work-group size if needed.
+        */
+      stream->parallel_for(sycl::nd_range<3>(sycl::range<3>(1, 1, num_blocks) *
+                                                 sycl::range<3>(1, 1, threads),
+                                             sycl::range<3>(1, 1, threads)),
+                           [=](sycl::nd_item<3> item_ct1) {
+                             unary_kernel<1, true, fp32, Param, OP>(
+                                 input, output, scale, amax, params, N, N,
+                                 item_ct1);
+                           });
         break;
       }
     }
   }
 }
 
-template <int nvec, typename Param,
-          fp32 (*OP)(fp32, const Param&),
-          typename InputType,
-          typename InputTypeGrad,
-          typename OutputType>
+template <int nvec, typename Param, fp32 (*OP)(fp32, const Param &),
+          typename InputType, typename InputTypeGrad, typename OutputType>
 void VectorizedUnaryGradKernelLauncher(const InputTypeGrad *grad,
                                        const InputType *input,
-                                       OutputType *output,
-                                       const fp32 *scale,
-                                       fp32 *amax,
-                                       const size_t N,
+                                       OutputType *output, const fp32 *scale,
+                                       fp32 *amax, const size_t N,
                                        const Param params,
-                                       cudaStream_t stream) {
+                                       dpct::queue_ptr stream) {
   if (N != 0) {
     auto align = CheckAlignment(N, nvec, input, grad, output);
 
@@ -409,17 +438,50 @@ void VectorizedUnaryGradKernelLauncher(const InputTypeGrad *grad,
 
     switch (align) {
       case Alignment::SAME_ALIGNED:
-        unary_grad_kernel<nvec, true, fp32, Param, OP><<<num_blocks, threads, 0, stream>>>(
-            grad, input, output, scale, amax, params, N, num_aligned_elements);
+        /*
+        DPCT1049:3: The work-group size passed to the SYCL kernel may exceed the
+        limit. To get the device limit, query info::device::max_work_group_size.
+        Adjust the work-group size if needed.
+        */
+      stream->parallel_for(sycl::nd_range<3>(sycl::range<3>(1, 1, num_blocks) *
+                                                 sycl::range<3>(1, 1, threads),
+                                             sycl::range<3>(1, 1, threads)),
+                           [=](sycl::nd_item<3> item_ct1) {
+                             unary_grad_kernel<nvec, true, fp32, Param, OP>(
+                                 grad, input, output, scale, amax, params, N,
+                                 num_aligned_elements, item_ct1);
+                           });
         break;
       case Alignment::SAME_UNALIGNED:
-        unary_grad_kernel<nvec, false, fp32, Param, OP><<<num_blocks, threads, 0, stream>>>(
-            grad, input, output, scale, amax, params, N, num_aligned_elements);
+        /*
+        DPCT1049:4: The work-group size passed to the SYCL kernel may exceed the
+        limit. To get the device limit, query info::device::max_work_group_size.
+        Adjust the work-group size if needed.
+        */
+      stream->parallel_for(sycl::nd_range<3>(sycl::range<3>(1, 1, num_blocks) *
+                                                 sycl::range<3>(1, 1, threads),
+                                             sycl::range<3>(1, 1, threads)),
+                           [=](sycl::nd_item<3> item_ct1) {
+                             unary_grad_kernel<nvec, false, fp32, Param, OP>(
+                                 grad, input, output, scale, amax, params, N,
+                                 num_aligned_elements, item_ct1);
+                           });
         break;
       case Alignment::DIFFERENT: {
         // If the pointers are aligned differently we cannot vectorize
-        unary_grad_kernel<1, true, fp32, Param, OP><<<num_blocks, threads, 0, stream>>>(
-            grad, input, output, scale, amax, params, N, N);
+        /*
+        DPCT1049:5: The work-group size passed to the SYCL kernel may exceed the
+        limit. To get the device limit, query info::device::max_work_group_size.
+        Adjust the work-group size if needed.
+        */
+      stream->parallel_for(sycl::nd_range<3>(sycl::range<3>(1, 1, num_blocks) *
+                                                 sycl::range<3>(1, 1, threads),
+                                             sycl::range<3>(1, 1, threads)),
+                           [=](sycl::nd_item<3> item_ct1) {
+                             unary_grad_kernel<1, true, fp32, Param, OP>(
+                                 grad, input, output, scale, amax, params, N, N,
+                                 item_ct1);
+                           });
         break;
       }
     }
@@ -432,19 +494,21 @@ template <int nvec, bool aligned,
           ComputeType (*Activation)(const ComputeType, const Param&),
           typename InputType,
           typename OutputType>
-__launch_bounds__(unary_kernel_threads)
-__global__ void gated_act_kernel(const InputType *input,
+
+void gated_act_kernel(const InputType *input,
                                  OutputType *output,
                                  const ComputeType *scale,
                                  ComputeType *amax,
                                  const size_t m,
                                  const size_t n,
                                  const Param p,
-                                 const size_t num_aligned_elements) {
+                                 const size_t num_aligned_elements,
+                                 const sycl::nd_item<3> &item_ct1) {
   const size_t M = num_aligned_elements * m;
-  for (size_t tid = blockIdx.x * blockDim.x + threadIdx.x;
-      tid < M;
-      tid += gridDim.x * blockDim.x) {
+  for (size_t tid = item_ct1.get_group(2) * item_ct1.get_local_range(2) +
+                    item_ct1.get_local_id(2);
+       tid < M;
+       tid += item_ct1.get_group_range(2) * item_ct1.get_local_range(2)) {
     const size_t id_x = tid % num_aligned_elements;
     const size_t id_y = tid / num_aligned_elements;
     VectorizedLoader<InputType, nvec, aligned> loader0(input + id_y * n * 2, n);
@@ -477,7 +541,7 @@ __global__ void gated_act_kernel(const InputType *input,
       /* warp tile amax reduce*/
       max = reduce_max<unary_kernel_threads / THREADS_PER_WARP>(max, warp_id);
 
-      if (threadIdx.x == 0 && amax != nullptr) {
+      if (item_ct1.get_local_id(2) == 0 && amax != nullptr) {
           static_assert(std::is_same<ComputeType, float>::value);
           atomicMaxFloat(amax, max);
       }
@@ -485,20 +549,13 @@ __global__ void gated_act_kernel(const InputType *input,
   }
 }
 
-template <int nvec,
-          typename ComputeType,
-          typename Param,
-          ComputeType (*Activation)(const ComputeType, const Param&),
-          typename InputType,
-          typename OutputType>
-void GatedActivationKernelLauncher(const InputType *input,
-                                   OutputType *output,
-                                   const fp32 *scale,
-                                   fp32 *amax,
-                                   const size_t m,
-                                   const size_t n,
-                                   const Param &p,
-                                   cudaStream_t stream) {
+template <int nvec, typename ComputeType, typename Param,
+          ComputeType (*Activation)(const ComputeType, const Param &),
+          typename InputType, typename OutputType>
+void GatedActivationKernelLauncher(const InputType *input, OutputType *output,
+                                   const fp32 *scale, fp32 *amax,
+                                   const size_t m, const size_t n,
+                                   const Param &p, dpct::queue_ptr stream) {
   if (m != 0 && n != 0) {
     size_t num_aligned_elements = get_num_aligned_elements(input, n, nvec, sizeof(InputType));
     constexpr size_t threads = unary_kernel_threads;
@@ -508,20 +565,52 @@ void GatedActivationKernelLauncher(const InputType *input,
 
     switch (auto align = CheckAlignment(n, nvec, input, input + n, output)) {
       case Alignment::SAME_ALIGNED:
-        gated_act_kernel<nvec, true, ComputeType, Param, Activation>
-                        <<<num_blocks, threads, 0, stream>>>(
-                        input, output, scale, amax, m, n, p, num_aligned_elements);
+        /*
+        DPCT1049:6: The work-group size passed to the SYCL kernel may exceed the
+        limit. To get the device limit, query info::device::max_work_group_size.
+        Adjust the work-group size if needed.
+        */
+      stream->parallel_for(
+          sycl::nd_range<3>(sycl::range<3>(1, 1, num_blocks) *
+                                sycl::range<3>(1, 1, threads),
+                            sycl::range<3>(1, 1, threads)),
+          [=](sycl::nd_item<3> item_ct1) {
+            gated_act_kernel<nvec, true, ComputeType, Param, Activation>(
+                input, output, scale, amax, m, n, p, num_aligned_elements,
+                item_ct1);
+          });
         break;
       case Alignment::SAME_UNALIGNED:
-        gated_act_kernel<nvec, false, ComputeType, Param, Activation>
-                        <<<num_blocks, threads, 0, stream>>>(
-                        input, output, scale, amax, m, n, p, num_aligned_elements);
+        /*
+        DPCT1049:7: The work-group size passed to the SYCL kernel may exceed the
+        limit. To get the device limit, query info::device::max_work_group_size.
+        Adjust the work-group size if needed.
+        */
+      stream->parallel_for(
+          sycl::nd_range<3>(sycl::range<3>(1, 1, num_blocks) *
+                                sycl::range<3>(1, 1, threads),
+                            sycl::range<3>(1, 1, threads)),
+          [=](sycl::nd_item<3> item_ct1) {
+            gated_act_kernel<nvec, false, ComputeType, Param, Activation>(
+                input, output, scale, amax, m, n, p, num_aligned_elements,
+                item_ct1);
+          });
         break;
       case Alignment::DIFFERENT: {
         // If the pointers are aligned differently we cannot vectorize
-        gated_act_kernel<1, true, ComputeType, Param, Activation>
-                        <<<num_blocks, threads, 0, stream>>>(
-                        input, output, scale, amax, m, n, p, n);
+        /*
+        DPCT1049:8: The work-group size passed to the SYCL kernel may exceed the
+        limit. To get the device limit, query info::device::max_work_group_size.
+        Adjust the work-group size if needed.
+        */
+      stream->parallel_for(
+          sycl::nd_range<3>(sycl::range<3>(1, 1, num_blocks) *
+                                sycl::range<3>(1, 1, threads),
+                            sycl::range<3>(1, 1, threads)),
+          [=](sycl::nd_item<3> item_ct1) {
+            gated_act_kernel<1, true, ComputeType, Param, Activation>(
+                input, output, scale, amax, m, n, p, n, item_ct1);
+          });
         break;
       }
     }
@@ -535,18 +624,20 @@ template <int nvec, bool aligned,
           ComputeType (*Dactivation)(const ComputeType, const Param&),
           typename InputType,
           typename OutputType>
-__launch_bounds__(unary_kernel_threads)
-__global__ void dgated_act_kernel(const InputType *grad,
+
+void dgated_act_kernel(const InputType *grad,
                                   const InputType *input,
                                   OutputType *output,
                                   const size_t m,
                                   const size_t n,
                                   const Param p,
-                                  const size_t num_aligned_elements) {
+                                  const size_t num_aligned_elements,
+                                  const sycl::nd_item<3> &item_ct1) {
   const size_t M = num_aligned_elements * m;
-  for (size_t tid = blockIdx.x * blockDim.x + threadIdx.x;
-      tid < M;
-      tid += gridDim.x * blockDim.x) {
+  for (size_t tid = item_ct1.get_group(2) * item_ct1.get_local_range(2) +
+                    item_ct1.get_local_id(2);
+       tid < M;
+       tid += item_ct1.get_group_range(2) * item_ct1.get_local_range(2)) {
     const size_t id_x = tid % num_aligned_elements;
     const size_t id_y = tid / num_aligned_elements;
     VectorizedLoader<InputType, nvec, aligned> grad_loader(grad + id_y * n, n);
@@ -576,20 +667,14 @@ __global__ void dgated_act_kernel(const InputType *grad,
   }
 }
 
-template <int nvec,
-          typename ComputeType,
-          typename Param,
-          ComputeType (*Activation)(const ComputeType, const Param&),
-          ComputeType (*Dactivation)(const ComputeType, const Param&),
-          typename InputType,
-          typename OutputType>
+template <int nvec, typename ComputeType, typename Param,
+          ComputeType (*Activation)(const ComputeType, const Param &),
+          ComputeType (*Dactivation)(const ComputeType, const Param &),
+          typename InputType, typename OutputType>
 void DGatedActivationKernelLauncher(const InputType *grad,
-                                    const InputType *input,
-                                    OutputType *output,
-                                    const size_t m,
-                                    const size_t n,
-                                    const Param &p,
-                                    cudaStream_t stream) {
+                                    const InputType *input, OutputType *output,
+                                    const size_t m, const size_t n,
+                                    const Param &p, dpct::queue_ptr stream) {
   if (m != 0 && n != 0) {
     size_t num_aligned_elements = get_num_aligned_elements(grad, n, nvec,
                                                            sizeof(InputType));
@@ -600,17 +685,52 @@ void DGatedActivationKernelLauncher(const InputType *grad,
 
     switch (auto align = CheckAlignment(n, nvec, input, input + n, output, output + n)) {
       case Alignment::SAME_ALIGNED:
-        dgated_act_kernel<nvec, true, ComputeType, Param, Activation, Dactivation>
-          <<<num_blocks, threads, 0, stream>>>(grad, input, output, m, n, p, num_aligned_elements);
+        /*
+        DPCT1049:9: The work-group size passed to the SYCL kernel may exceed the
+        limit. To get the device limit, query info::device::max_work_group_size.
+        Adjust the work-group size if needed.
+        */
+      stream->parallel_for(sycl::nd_range<3>(sycl::range<3>(1, 1, num_blocks) *
+                                                 sycl::range<3>(1, 1, threads),
+                                             sycl::range<3>(1, 1, threads)),
+                           [=](sycl::nd_item<3> item_ct1) {
+                             dgated_act_kernel<nvec, true, ComputeType, Param,
+                                               Activation, Dactivation>(
+                                 grad, input, output, m, n, p,
+                                 num_aligned_elements, item_ct1);
+                           });
         break;
       case Alignment::SAME_UNALIGNED:
-        dgated_act_kernel<nvec, false, ComputeType, Param, Activation, Dactivation>
-          <<<num_blocks, threads, 0, stream>>>(grad, input, output, m, n, p, num_aligned_elements);
+        /*
+        DPCT1049:10: The work-group size passed to the SYCL kernel may exceed
+        the limit. To get the device limit, query
+        info::device::max_work_group_size. Adjust the work-group size if needed.
+        */
+      stream->parallel_for(sycl::nd_range<3>(sycl::range<3>(1, 1, num_blocks) *
+                                                 sycl::range<3>(1, 1, threads),
+                                             sycl::range<3>(1, 1, threads)),
+                           [=](sycl::nd_item<3> item_ct1) {
+                             dgated_act_kernel<nvec, false, ComputeType, Param,
+                                               Activation, Dactivation>(
+                                 grad, input, output, m, n, p,
+                                 num_aligned_elements, item_ct1);
+                           });
         break;
       case Alignment::DIFFERENT: {
         // If the pointers are aligned differently we cannot vectorize
-        dgated_act_kernel<1, true, ComputeType, Param, Activation, Dactivation>
-          <<<num_blocks, threads, 0, stream>>>(grad, input, output, m, n, p, n);
+        /*
+        DPCT1049:11: The work-group size passed to the SYCL kernel may exceed
+        the limit. To get the device limit, query
+        info::device::max_work_group_size. Adjust the work-group size if needed.
+        */
+      stream->parallel_for(sycl::nd_range<3>(sycl::range<3>(1, 1, num_blocks) *
+                                                 sycl::range<3>(1, 1, threads),
+                                             sycl::range<3>(1, 1, threads)),
+                           [=](sycl::nd_item<3> item_ct1) {
+                             dgated_act_kernel<1, true, ComputeType, Param,
+                                               Activation, Dactivation>(
+                                 grad, input, output, m, n, p, n, item_ct1);
+                           });
         break;
       }
     }

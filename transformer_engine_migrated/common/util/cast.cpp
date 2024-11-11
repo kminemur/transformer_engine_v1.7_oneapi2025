@@ -5,6 +5,8 @@
  ************************************************************************/
 
 #include <transformer_engine/cast.h>
+#include <sycl/sycl.hpp>
+#include <dpct/dpct.hpp>
 #include "../common.h"
 #include "../utils.cuh"
 #include "../util/vectorized_pointwise.h"
@@ -15,7 +17,7 @@ namespace detail {
 
 struct Empty {};
 
-__device__ inline fp32 identity(fp32 value, const Empty&) {
+inline fp32 identity(fp32 value, const Empty&) {
   return value;
 }
 
@@ -23,15 +25,13 @@ struct DequantizeParam {
   const fp32 *scale_inv;
 };
 
-__device__ inline fp32 dequantize_func(fp32 value, const DequantizeParam &param) {
+inline fp32 dequantize_func(fp32 value, const DequantizeParam &param) {
   return value * (*(param.scale_inv));
 }
 
 }  // namespace detail
 
-void fp8_quantize(const Tensor &input,
-                  Tensor *output,
-                  cudaStream_t stream) {
+void fp8_quantize(const Tensor &input, Tensor *output, dpct::queue_ptr stream) {
   CheckInputTensor(input, "cast_input");
   CheckOutputTensor(*output, "cast_output");
 
@@ -58,9 +58,8 @@ void fp8_quantize(const Tensor &input,
   );  // NOLINT(*)
 }
 
-void fp8_dequantize(const Tensor &input,
-                    Tensor *output,
-                    cudaStream_t stream) {
+void fp8_dequantize(const Tensor &input, Tensor *output,
+                    dpct::queue_ptr stream) {
   CheckInputTensor(input, "cast_input");
   CheckOutputTensor(*output, "cast_output");
   NVTE_CHECK(is_fp8_dtype(input.data.dtype),
@@ -90,9 +89,8 @@ void fp8_dequantize(const Tensor &input,
 
 }  // namespace transformer_engine
 
-void nvte_fp8_quantize(const NVTETensor input,
-                       NVTETensor output,
-                       cudaStream_t stream) {
+void nvte_fp8_quantize(const NVTETensor input, NVTETensor output,
+                       dpct::queue_ptr stream) {
   NVTE_API_CALL(nvte_fp8_quantize);
   using namespace transformer_engine;
   fp8_quantize(*reinterpret_cast<const Tensor*>(input),
@@ -100,9 +98,8 @@ void nvte_fp8_quantize(const NVTETensor input,
                stream);
 }
 
-void nvte_fp8_dequantize(const NVTETensor input,
-                         NVTETensor output,
-                         cudaStream_t stream) {
+void nvte_fp8_dequantize(const NVTETensor input, NVTETensor output,
+                         dpct::queue_ptr stream) {
   NVTE_API_CALL(nvte_fp8_dequantize);
   using namespace transformer_engine;
   fp8_dequantize(*reinterpret_cast<const Tensor*>(input),
