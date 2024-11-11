@@ -58,7 +58,9 @@ void performTestGelu(const size_t N, const size_t H) {
 
   std::unique_ptr<OType[]> ref_output = std::make_unique<OType[]>(N*H);
 
-  nvte_gelu(input.data(), output.data(), 0);
+  sycl::queue stream;
+  dpct::queue_ptr dpct_stream = &stream;
+  nvte_gelu(input.data(), output.data(), dpct_stream);
 
   float ref_amax;
   compute_ref_gelu_cast(input.cpu_dptr<IType>(), ref_output.get(),
