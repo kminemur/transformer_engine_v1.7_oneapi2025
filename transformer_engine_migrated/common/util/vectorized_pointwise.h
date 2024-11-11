@@ -214,7 +214,7 @@ void unary_kernel(const InputType *input,
       ComputeType temp = OP(val, p);
       if constexpr (is_fp8<OutputType>::value) {
         __builtin_assume(max >= 0);
-        max = sycl::fmax(sycl::fabsf(temp), max);
+        max = fmaxf(fabsf(temp), max);
 
         temp = temp * s;
       }
