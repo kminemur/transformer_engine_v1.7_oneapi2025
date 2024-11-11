@@ -18,8 +18,9 @@ size_t typeToSize(const transformer_engine::DType type) {
 }
 
 bool is_fp8_dtype(const transformer_engine::DType t) {
-  return t == transformer_engine::DType::kFloat8E4M3 ||
-         t == transformer_engine::DType::kFloat8E5M2;
+  //return t == transformer_engine::DType::kFloat8E4M3 ||
+  //       t == transformer_engine::DType::kFloat8E5M2;
+  return false;
 }
 
 void CheckInputTensor(const Tensor &t, const std::string &name) {
