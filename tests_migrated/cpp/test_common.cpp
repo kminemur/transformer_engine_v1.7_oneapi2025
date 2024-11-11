@@ -199,7 +199,7 @@ std::vector<size_t> unravel(const size_t i, const NVTEShape &shape) {
   return ret;
 }
 
-void compareResults(const std::string &name, const Tensor &test, const void *ref,
+void compareResults(const std::string &name, Tensor &test, const void *ref,
                     double atol, double rtol) {
   test.to_cpu();
   const size_t N = product(test.shape());
