@@ -4,6 +4,8 @@
  * See LICENSE for license information.
  ************************************************************************/
 
+#include <sycl/sycl.hpp>
+#include <dpct/dpct.hpp>
 #include <cmath>
 #include <cstring>
 #include <iomanip>
@@ -11,8 +13,6 @@
 #include <memory>
 #include <random>
 
-#include <cuda_bf16.h>
-#include <cuda_runtime.h>
 #include <gtest/gtest.h>
 
 #include <transformer_engine/transpose.h>
@@ -94,9 +94,18 @@ void performTest(const size_t N, const size_t H) {
                                          output_c.scale(), ref_output_c.get(), ref_output_t.get(),
                                          &ref_amax, N, H);
 
-  cudaDeviceSynchronize();
-  auto err = cudaGetLastError();
-  ASSERT_EQ(err, cudaSuccess) << cudaGetErrorString(err);
+  dpct::get_current_device().queues_wait_and_throw();
+  /*
+  DPCT1010:6: SYCL uses exceptions to report errors and does not use the error
+  codes. The call was replaced with 0. You need to rewrite this code.
+  */
+  auto err = 0;
+  /*
+  DPCT1009:7: SYCL uses exceptions to report errors and does not use the error
+  codes. The call was replaced by a placeholder string. You need to rewrite this
+  code.
+  */
+  ASSERT_EQ(err, 0) << "<Placeholder string>";
 
   if (isFp8Type(otype)) {
     auto [atol_amax, rtol_amax] = getTolerances(DType::kFloat32);

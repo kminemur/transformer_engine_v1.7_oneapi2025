@@ -4,6 +4,8 @@
  * See LICENSE for license information.
  ************************************************************************/
 
+#include <sycl/sycl.hpp>
+#include <dpct/dpct.hpp>
 #include <cstring>
 #include <iomanip>
 #include <iostream>
@@ -11,12 +13,11 @@
 #include <random>
 #include <vector>
 
-#include <cuda_bf16.h>
-#include <cuda_runtime.h>
 #include <gtest/gtest.h>
 
 #include <transformer_engine/transpose.h>
 #include "../test_common.h"
+#include <cmath>
 
 using namespace transformer_engine;
 
@@ -129,9 +130,18 @@ void performTest() {
                                      ref_width_list);
 
   // Check correctness
-  cudaDeviceSynchronize();
-  auto err = cudaGetLastError();
-  ASSERT_EQ(err, cudaSuccess) << cudaGetErrorString(err);
+  dpct::get_current_device().queues_wait_and_throw();
+  /*
+  DPCT1010:18: SYCL uses exceptions to report errors and does not use the error
+  codes. The call was replaced with 0. You need to rewrite this code.
+  */
+  auto err = 0;
+  /*
+  DPCT1009:19: SYCL uses exceptions to report errors and does not use the error
+  codes. The call was replaced by a placeholder string. You need to rewrite this
+  code.
+  */
+  ASSERT_EQ(err, 0) << "<Placeholder string>";
   for (size_t tensor_id = 0; tensor_id < num_tensors; ++tensor_id) {
     if (isFp8Type(otype)) {
       auto [atol_amax, rtol_amax] = getTolerances(DType::kFloat32);

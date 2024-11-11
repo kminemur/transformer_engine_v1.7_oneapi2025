@@ -4,19 +4,20 @@
  * See LICENSE for license information.
  ************************************************************************/
 
+#include <sycl/sycl.hpp>
+#include <dpct/dpct.hpp>
 #include <cstring>
 #include <iomanip>
 #include <iostream>
 #include <memory>
 #include <random>
 
-#include <cuda_bf16.h>
-#include <cuda_runtime.h>
 #include <gtest/gtest.h>
 
 #include <transformer_engine/cast.h>
 #include <transformer_engine/transformer_engine.h>
 #include "../test_common.h"
+#include <cmath>
 
 using namespace transformer_engine;
 
@@ -72,9 +73,18 @@ void performTestQ(const size_t N) {
   compute_ref_q<InputType, OutputType>(input.cpu_dptr<InputType>(), ref_output.get(),
                                        N, &ref_amax, output.scale());
 
-  cudaDeviceSynchronize();
-  auto err = cudaGetLastError();
-  ASSERT_EQ(err, cudaSuccess) << cudaGetErrorString(err);
+  dpct::get_current_device().queues_wait_and_throw();
+  /*
+  DPCT1010:20: SYCL uses exceptions to report errors and does not use the error
+  codes. The call was replaced with 0. You need to rewrite this code.
+  */
+  auto err = 0;
+  /*
+  DPCT1009:21: SYCL uses exceptions to report errors and does not use the error
+  codes. The call was replaced by a placeholder string. You need to rewrite this
+  code.
+  */
+  ASSERT_EQ(err, 0) << "<Placeholder string>";
 
   auto [atol_amax, rtol_amax] = getTolerances(DType::kFloat32);
   compareResults("amax", output.amax(), ref_amax, atol_amax, rtol_amax);
@@ -101,9 +111,18 @@ void performTestDQ(const size_t N) {
   compute_ref_dq<InputType, OutputType>(input.cpu_dptr<InputType>(), ref_output.get(),
                                         N, input.scale_inv());
 
-  cudaDeviceSynchronize();
-  auto err = cudaGetLastError();
-  ASSERT_EQ(err, cudaSuccess) << cudaGetErrorString(err);
+  dpct::get_current_device().queues_wait_and_throw();
+  /*
+  DPCT1010:22: SYCL uses exceptions to report errors and does not use the error
+  codes. The call was replaced with 0. You need to rewrite this code.
+  */
+  auto err = 0;
+  /*
+  DPCT1009:23: SYCL uses exceptions to report errors and does not use the error
+  codes. The call was replaced by a placeholder string. You need to rewrite this
+  code.
+  */
+  ASSERT_EQ(err, 0) << "<Placeholder string>";
 
   auto [atol, rtol] = getTolerances(otype);
   compareResults("output_dq", output, ref_output.get(), atol, rtol);

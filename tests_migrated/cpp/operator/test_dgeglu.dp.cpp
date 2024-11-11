@@ -4,6 +4,8 @@
  * See LICENSE for license information.
  ************************************************************************/
 
+#include <sycl/sycl.hpp>
+#include <dpct/dpct.hpp>
 #include <cmath>
 #include <cstring>
 #include <iomanip>
@@ -12,8 +14,6 @@
 #include <random>
 #include <type_traits>
 
-#include <cuda_bf16.h>
-#include <cuda_runtime.h>
 #include <gtest/gtest.h>
 
 #include <transformer_engine/activation.h>
@@ -80,9 +80,18 @@ void performTestDGeGLU(const size_t N, const size_t H) {
   compute_ref_dgeglu<IType, OType, CType>(grad.cpu_dptr<IType>(), input.cpu_dptr<IType>(),
                                           ref_output.get(), N, H);
 
-  cudaDeviceSynchronize();
-  auto err = cudaGetLastError();
-  ASSERT_EQ(err, cudaSuccess) << cudaGetErrorString(err);
+  dpct::get_current_device().queues_wait_and_throw();
+  /*
+  DPCT1010:10: SYCL uses exceptions to report errors and does not use the error
+  codes. The call was replaced with 0. You need to rewrite this code.
+  */
+  auto err = 0;
+  /*
+  DPCT1009:11: SYCL uses exceptions to report errors and does not use the error
+  codes. The call was replaced by a placeholder string. You need to rewrite this
+  code.
+  */
+  ASSERT_EQ(err, 0) << "<Placeholder string>";
 
   auto [atol, rtol] = getTolerances(otype);
   compareResults("output_dgelu", output, ref_output.get(), atol, rtol);

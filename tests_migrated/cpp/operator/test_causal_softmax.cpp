@@ -4,12 +4,13 @@
  * See LICENSE for license information.
  ************************************************************************/
 
-#include <cuda_bf16.h>
-#include <cuda_runtime.h>
+#include <sycl/sycl.hpp>
+#include <dpct/dpct.hpp>
 #include <gtest/gtest.h>
 
 #include <transformer_engine/softmax.h>
 #include "../test_common.h"
+#include <cmath>
 
 using namespace transformer_engine;
 
@@ -180,9 +181,18 @@ void performTest(
   compute_bwd_ref(grads_out_ref.get(), grads_in.cpu_dptr<Type>(), softmax_in.cpu_dptr<Type>(),
                   compute_buffer.get(), scaling_factor, batches, heads, rows, cols);
 
-  cudaDeviceSynchronize();
-  auto err = cudaGetLastError();
-  ASSERT_EQ(err, cudaSuccess) << cudaGetErrorString(err);
+  dpct::get_current_device().queues_wait_and_throw();
+  /*
+  DPCT1010:8: SYCL uses exceptions to report errors and does not use the error
+  codes. The call was replaced with 0. You need to rewrite this code.
+  */
+  auto err = 0;
+  /*
+  DPCT1009:9: SYCL uses exceptions to report errors and does not use the error
+  codes. The call was replaced by a placeholder string. You need to rewrite this
+  code.
+  */
+  ASSERT_EQ(err, 0) << "<Placeholder string>";
   auto [atol, rtol] = getTolerances(itype);
   if(itype == DType::kBFloat16) {
     atol = 1e-3;

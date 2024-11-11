@@ -4,6 +4,8 @@
  * See LICENSE for license information.
  ************************************************************************/
 
+#include <sycl/sycl.hpp>
+#include <dpct/dpct.hpp>
 #include <cmath>
 #include <cstring>
 #include <memory>
@@ -11,8 +13,6 @@
 #include <iostream>
 #include <random>
 
-#include <cuda_bf16.h>
-#include <cuda_runtime.h>
 #include <gtest/gtest.h>
 
 #include <transformer_engine/layer_norm.h>
@@ -165,38 +165,34 @@ void performTest(const size_t N, const size_t H, const bool zero_centered_gamma)
   std::unique_ptr<WeightType[]> ref_dgamma = std::make_unique<InputType[]>(H);
   std::unique_ptr<WeightType[]> ref_dbeta = std::make_unique<InputType[]>(H);
 
-  cudaDeviceProp prop;
-  cudaGetDeviceProperties(&prop, 0);
+  dpct::device_info prop;
+  dpct::get_device(0).get_device_info(prop);
 
   // Forward kernel
   float epsilon = 1e-5;
   auto fwd_function = zero_centered_gamma ? nvte_layernorm1p_fwd : nvte_layernorm_fwd;
-  fwd_function(input.data(), gamma.data(), beta.data(), epsilon,
-               z.data(), mu.data(), rsigma.data(), 0, prop.multiProcessorCount,
+  fwd_function(input.data(), gamma.data(), beta.data(), epsilon, z.data(),
+               mu.data(), rsigma.data(), 0, prop.get_max_compute_units(),
                workspace.data(), barrier.data());
   workspace = Tensor(workspace.shape(), workspace.dtype());
   barrier = Tensor(barrier.shape(), barrier.dtype());
-  fwd_function(input.data(), gamma.data(), beta.data(), epsilon,
-               z.data(), mu.data(), rsigma.data(), 0, prop.multiProcessorCount,
+  fwd_function(input.data(), gamma.data(), beta.data(), epsilon, z.data(),
+               mu.data(), rsigma.data(), 0, prop.get_max_compute_units(),
                workspace.data(), barrier.data());
 
   // Backward kernel
   auto bwd_function = zero_centered_gamma ? nvte_layernorm1p_bwd : nvte_layernorm_bwd;
-  bwd_function(dz.data(), input.data(),
-               mu.data(), rsigma.data(), gamma.data(),
-               dx.data(), dgamma.data(), dbeta.data(),
-               dgamma_part.data(), dbeta_part.data(),
-               0, prop.multiProcessorCount,
+  bwd_function(dz.data(), input.data(), mu.data(), rsigma.data(), gamma.data(),
+               dx.data(), dgamma.data(), dbeta.data(), dgamma_part.data(),
+               dbeta_part.data(), 0, prop.get_max_compute_units(),
                workspace.data(), barrier.data());
   workspace = Tensor(workspace.shape(), workspace.dtype());
   barrier = Tensor(barrier.shape(), barrier.dtype());
   dgamma_part = Tensor(dgamma_part.shape(), dgamma_part.dtype());
   dbeta_part = Tensor(dbeta_part.shape(), dbeta_part.dtype());
-  bwd_function(dz.data(), input.data(),
-               mu.data(), rsigma.data(), gamma.data(),
-               dx.data(), dgamma.data(), dbeta.data(),
-               dgamma_part.data(), dbeta_part.data(),
-               0, prop.multiProcessorCount,
+  bwd_function(dz.data(), input.data(), mu.data(), rsigma.data(), gamma.data(),
+               dx.data(), dgamma.data(), dbeta.data(), dgamma_part.data(),
+               dbeta_part.data(), 0, prop.get_max_compute_units(),
                workspace.data(), barrier.data());
 
   // Reference implementations
@@ -223,9 +219,18 @@ void performTest(const size_t N, const size_t H, const bool zero_centered_gamma)
                        ref_dx.get(), ref_dgamma.get(), ref_dbeta.get(),
                        N, H, zero_centered_gamma);
 
-  cudaDeviceSynchronize();
-  auto err = cudaGetLastError();
-  ASSERT_EQ(err, cudaSuccess) << cudaGetErrorString(err);
+  dpct::get_current_device().queues_wait_and_throw();
+  /*
+  DPCT1010:16: SYCL uses exceptions to report errors and does not use the error
+  codes. The call was replaced with 0. You need to rewrite this code.
+  */
+  auto err = 0;
+  /*
+  DPCT1009:17: SYCL uses exceptions to report errors and does not use the error
+  codes. The call was replaced by a placeholder string. You need to rewrite this
+  code.
+  */
+  ASSERT_EQ(err, 0) << "<Placeholder string>";
 
   auto [atol_amax, rtol_amax] = getTolerances(DType::kFloat32);
   if (isFp8Type(otype)) {
