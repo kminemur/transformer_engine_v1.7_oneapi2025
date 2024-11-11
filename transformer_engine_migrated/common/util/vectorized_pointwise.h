@@ -11,7 +11,7 @@
 #include <dpct/dpct.hpp>
 #include <type_traits>
 #include "../common.h"
-#include "../utils.cuh"
+#include "../utils.hpp"
 
 namespace transformer_engine {
 
