@@ -1,0 +1,210 @@
+---
+MainSourceFile:  '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/build/dpct_output/samples/legacy_samples/resnet_block/include/layers/models/resnet/block_device_pointer_stores/cudnn_frontend_residual_block_dev_ptr_store.h'
+Replacements:
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/block_device_pointer_stores/cudnn_frontend_residual_block_dev_ptr_store.h'
+    Offset:          14
+    Length:          0
+    ReplacementText: "#include <dpct/dnnl_utils.hpp>\n#define DPCT_PROFILING_ENABLED\n#include <sycl/sycl.hpp>\n#include <dpct/dpct.hpp>\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/block_device_pointer_stores/cudnn_frontend_residual_block_dev_ptr_store.h'
+    Offset:          153
+    Length:          26
+    ReplacementText: ''
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/block_device_pointer_stores/cudnn_frontend_residual_block_dev_ptr_store.h'
+    Offset:          263
+    Length:          19
+    ReplacementText: ''
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/block_device_pointer_stores/cudnn_frontend_residual_block_dev_ptr_store.h'
+    Offset:          6042
+    Length:          13
+    ReplacementText: 'dpct::err1'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/block_device_pointer_stores/cudnn_frontend_residual_block_dev_ptr_store.h'
+    Offset:          6859
+    Length:          20
+    ReplacementText: '0'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/block_device_pointer_stores/cudnn_frontend_residual_block_dev_ptr_store.h'
+    Offset:          7029
+    Length:          13
+    ReplacementText: 'dpct::err1'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/block_device_pointer_stores/cudnn_frontend_residual_block_dev_ptr_store.h'
+    Offset:          7340
+    Length:          13
+    ReplacementText: 'dpct::err1'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/block_device_pointer_stores/cudnn_frontend_residual_block_dev_ptr_store.h'
+    Offset:          7562
+    Length:          20
+    ReplacementText: '0'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/block_device_pointer_stores/cudnn_frontend_residual_block_dev_ptr_store.h'
+    Offset:          7735
+    Length:          20
+    ReplacementText: '0'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/block_device_pointer_stores/cudnn_frontend_residual_block_dev_ptr_store.h'
+    Offset:          7926
+    Length:          20
+    ReplacementText: '0'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/block_device_pointer_stores/cudnn_frontend_residual_block_dev_ptr_store.h'
+    Offset:          8131
+    Length:          20
+    ReplacementText: '0'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/block_device_pointer_stores/cudnn_frontend_residual_block_dev_ptr_store.h'
+    Offset:          8179
+    Length:          26
+    ReplacementText: '3000'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/block_device_pointer_stores/cudnn_frontend_residual_block_dev_ptr_store.h'
+    Offset:          10901
+    Length:          13
+    ReplacementText: 'dpct::err1'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/block_device_pointer_stores/cudnn_frontend_residual_block_dev_ptr_store.h'
+    Offset:          10928
+    Length:          20
+    ReplacementText: '0'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/block_device_pointer_stores/cudnn_frontend_residual_block_dev_ptr_store.h'
+    Offset:          11237
+    Length:          13
+    ReplacementText: 'dpct::err1'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+MainSourceFilesDigest:
+  - MainSourceFile:  '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/block_device_pointer_stores/cudnn_frontend_residual_block_dev_ptr_store.h'
+    Digest:          2363faa3ee5cf461652bb1151044f896
+DpctVersion:     2024.2.0
+MainHelperFileName: ''
+USMLevel:        ''
+FeatureMap:      {}
+CompileTargets:  {}
+OptionMap:
+  AnalysisScopePath:
+    Value:           '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend'
+    Specified:       false
+  AsyncHandler:
+    Value:           'false'
+    Specified:       false
+  BuildScript:
+    Value:           '1'
+    Specified:       true
+  CodePinEnabled:
+    Value:           'false'
+    Specified:       false
+  CommentsEnabled:
+    Value:           'false'
+    Specified:       false
+  CompilationsDir:
+    Value:           '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/build'
+    Specified:       true
+  CtadEnabled:
+    Value:           'false'
+    Specified:       false
+  EnablepProfiling:
+    Value:           'false'
+    Specified:       false
+  ExperimentalFlag:
+    Value:           '0'
+    Specified:       false
+  ExplicitNamespace:
+    Value:           '20'
+    Specified:       false
+  ExtensionDDFlag:
+    Value:           '0'
+    Specified:       false
+  ExtensionDEFlag:
+    Value:           '4294967295'
+    Specified:       false
+  HelperFuncPreferenceFlag:
+    Value:           '0'
+    Specified:       false
+  NDRangeDim:
+    Value:           '3'
+    Specified:       false
+  NoDRYPattern:
+    Value:           'false'
+    Specified:       false
+  OptimizeMigration:
+    Value:           'false'
+    Specified:       false
+  ProcessAll:
+    Value:           'false'
+    Specified:       false
+  RuleFile:
+    Value:           ''
+    ValueVec:
+      - '/opt/intel/oneapi/dpcpp-ct/2024.2/extensions/cmake_rules/cmake_script_migration_rule.yaml'
+    Specified:       false
+  SyclNamedLambda:
+    Value:           'false'
+    Specified:       false
+  UsmLevel:
+    Value:           '1'
+    Specified:       false
+...

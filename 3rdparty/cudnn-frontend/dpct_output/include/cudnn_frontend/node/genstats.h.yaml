@@ -1,0 +1,111 @@
+---
+MainSourceFile:  '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/build/dpct_output/include/cudnn_frontend/node/genstats.h'
+Replacements:
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/include/cudnn_frontend/node/genstats.h'
+    Offset:          14
+    Length:          0
+    ReplacementText: "#define DPCT_PROFILING_ENABLED\n#include <sycl/sycl.hpp>\n#include <dpct/dpct.hpp>\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/include/cudnn_frontend/node/genstats.h'
+    Offset:          3467
+    Length:          0
+    ReplacementText: "        /*\n        DPCT1007:752: Migration of CUDNN_GENSTATS_SUM_SQSUM is not supported.\n        */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/include/cudnn_frontend/node/genstats.h'
+    Offset:          4744
+    Length:          0
+    ReplacementText: "            /*\n            DPCT1007:753: Migration of CUDNN_BACKEND_API_FAILED is not supported.\n            */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/include/cudnn_frontend/node/genstats.h'
+    Offset:          4826
+    Length:          20
+    ReplacementText: '0'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+MainSourceFilesDigest:
+  - MainSourceFile:  '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/include/cudnn_frontend/node/genstats.h'
+    Digest:          56bacaea68d215a1da385ac03bacca77
+DpctVersion:     2024.2.0
+MainHelperFileName: ''
+USMLevel:        ''
+FeatureMap:      {}
+CompileTargets:  {}
+OptionMap:
+  AnalysisScopePath:
+    Value:           '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend'
+    Specified:       false
+  AsyncHandler:
+    Value:           'false'
+    Specified:       false
+  BuildScript:
+    Value:           '1'
+    Specified:       true
+  CodePinEnabled:
+    Value:           'false'
+    Specified:       false
+  CommentsEnabled:
+    Value:           'false'
+    Specified:       false
+  CompilationsDir:
+    Value:           '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/build'
+    Specified:       true
+  CtadEnabled:
+    Value:           'false'
+    Specified:       false
+  EnablepProfiling:
+    Value:           'false'
+    Specified:       false
+  ExperimentalFlag:
+    Value:           '0'
+    Specified:       false
+  ExplicitNamespace:
+    Value:           '20'
+    Specified:       false
+  ExtensionDDFlag:
+    Value:           '0'
+    Specified:       false
+  ExtensionDEFlag:
+    Value:           '4294967295'
+    Specified:       false
+  HelperFuncPreferenceFlag:
+    Value:           '0'
+    Specified:       false
+  NDRangeDim:
+    Value:           '3'
+    Specified:       false
+  NoDRYPattern:
+    Value:           'false'
+    Specified:       false
+  OptimizeMigration:
+    Value:           'false'
+    Specified:       false
+  ProcessAll:
+    Value:           'false'
+    Specified:       false
+  RuleFile:
+    Value:           ''
+    ValueVec:
+      - '/opt/intel/oneapi/dpcpp-ct/2024.2/extensions/cmake_rules/cmake_script_migration_rule.yaml'
+    Specified:       false
+  SyclNamedLambda:
+    Value:           'false'
+    Specified:       false
+  UsmLevel:
+    Value:           '1'
+    Specified:       false
+...

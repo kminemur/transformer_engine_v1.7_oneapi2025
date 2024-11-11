@@ -1,0 +1,255 @@
+---
+MainSourceFile:  '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/build/dpct_output/samples/utils/error_util.h'
+Replacements:
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/error_util.h'
+    Offset:          1201
+    Length:          0
+    ReplacementText: "#define DPCT_PROFILING_ENABLED\n#include <sycl/sycl.hpp>\n#include <dpct/dpct.hpp>\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/error_util.h'
+    Offset:          2947
+    Length:          17
+    ReplacementText: 'dpct::get_current_device().reset()'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/error_util.h'
+    Offset:          3672
+    Length:          0
+    ReplacementText: "/*\nDPCT1009:769: SYCL uses exceptions to report errors and does not use the error codes. The call was replaced by a placeholder string. You need to rewrite this code.\n*/\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/error_util.h'
+    Offset:          4037
+    Length:          26
+    ReplacementText: '"<Placeholder string>"'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/error_util.h'
+    Offset:          4832
+    Length:          13
+    ReplacementText: 'dpct::err1'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/error_util.h'
+    Offset:          5081
+    Length:          13
+    ReplacementText: 'dpct::err1'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/error_util.h'
+    Offset:          5329
+    Length:          0
+    ReplacementText: ' try '
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/error_util.h'
+    Offset:          5373
+    Length:          33
+    ReplacementText: 'DPCT_CHECK_ERROR(totalDevices = dpct::dev_mgr::instance().device_count())'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/error_util.h'
+    Offset:          5547
+    Length:          21
+    ReplacementText: 'dpct::device_info'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/error_util.h'
+    Offset:          5599
+    Length:          33
+    ReplacementText: 'DPCT_CHECK_ERROR(dpct::get_device_info(prop, dpct::dev_mgr::instance().get_device(i)))'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/error_util.h'
+    Offset:          5834
+    Length:          19
+    ReplacementText: 'get_max_compute_units()'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/error_util.h'
+    Offset:          5855
+    Length:          0
+    ReplacementText: "            /*\n            DPCT1005:770: The SYCL device version is different from CUDA Compute Compatibility. You may need to rewrite this code.\n            */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/error_util.h'
+    Offset:          5872
+    Length:          5
+    ReplacementText: 'get_major_version()'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/error_util.h'
+    Offset:          5879
+    Length:          0
+    ReplacementText: "            /*\n            DPCT1005:771: The SYCL device version is different from CUDA Compute Compatibility. You may need to rewrite this code.\n            */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/error_util.h'
+    Offset:          5896
+    Length:          5
+    ReplacementText: 'get_minor_version()'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/error_util.h'
+    Offset:          5927
+    Length:          9
+    ReplacementText: 'get_max_clock_frequency()'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/error_util.h'
+    Offset:          5968
+    Length:          14
+    ReplacementText: 'get_global_mem_size()'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/error_util.h'
+    Offset:          6025
+    Length:          15
+    ReplacementText: 'get_memory_clock_rate()'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/error_util.h'
+    Offset:          6061
+    Length:          15
+    ReplacementText: 'dpct::get_current_device().get_info<sycl::info::device::error_correction_support>()'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/error_util.h'
+    Offset:          6125
+    Length:          0
+    ReplacementText: "\ncatch (sycl::exception const &exc) {\n  std::cerr << exc.what() << \"Exception caught at file:\" << __FILE__ << \", line:\" << __LINE__ << std::endl;\n  std::exit(1);\n}"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+MainSourceFilesDigest:
+  - MainSourceFile:  '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/error_util.h'
+    Digest:          23f57a72b3ff8ea036dd04a447ace030
+DpctVersion:     2024.2.0
+MainHelperFileName: ''
+USMLevel:        ''
+FeatureMap:      {}
+CompileTargets:  {}
+OptionMap:
+  AnalysisScopePath:
+    Value:           '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend'
+    Specified:       false
+  AsyncHandler:
+    Value:           'false'
+    Specified:       false
+  BuildScript:
+    Value:           '1'
+    Specified:       true
+  CodePinEnabled:
+    Value:           'false'
+    Specified:       false
+  CommentsEnabled:
+    Value:           'false'
+    Specified:       false
+  CompilationsDir:
+    Value:           '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/build'
+    Specified:       true
+  CtadEnabled:
+    Value:           'false'
+    Specified:       false
+  EnablepProfiling:
+    Value:           'false'
+    Specified:       false
+  ExperimentalFlag:
+    Value:           '0'
+    Specified:       false
+  ExplicitNamespace:
+    Value:           '20'
+    Specified:       false
+  ExtensionDDFlag:
+    Value:           '0'
+    Specified:       false
+  ExtensionDEFlag:
+    Value:           '4294967295'
+    Specified:       false
+  HelperFuncPreferenceFlag:
+    Value:           '0'
+    Specified:       false
+  NDRangeDim:
+    Value:           '3'
+    Specified:       false
+  NoDRYPattern:
+    Value:           'false'
+    Specified:       false
+  OptimizeMigration:
+    Value:           'false'
+    Specified:       false
+  ProcessAll:
+    Value:           'false'
+    Specified:       false
+  RuleFile:
+    Value:           ''
+    ValueVec:
+      - '/opt/intel/oneapi/dpcpp-ct/2024.2/extensions/cmake_rules/cmake_script_migration_rule.yaml'
+    Specified:       false
+  SyclNamedLambda:
+    Value:           'false'
+    Specified:       false
+  UsmLevel:
+    Value:           '1'
+    Specified:       false
+...

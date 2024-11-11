@@ -1,0 +1,408 @@
+---
+MainSourceFile:  '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/build/dpct_output/include/cudnn_frontend_ConvDesc.h'
+Replacements:
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/include/cudnn_frontend_ConvDesc.h'
+    Offset:          1162
+    Length:          0
+    ReplacementText: "#define DPCT_PROFILING_ENABLED\n#include <sycl/sycl.hpp>\n#include <dpct/dpct.hpp>\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/include/cudnn_frontend_ConvDesc.h'
+    Offset:          3398
+    Length:          22
+    ReplacementText: int
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/include/cudnn_frontend_ConvDesc.h'
+    Offset:          3984
+    Length:          22
+    ReplacementText: int
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/include/cudnn_frontend_ConvDesc.h'
+    Offset:          4022
+    Length:          17
+    ReplacementText: '0'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/include/cudnn_frontend_ConvDesc.h'
+    Offset:          4956
+    Length:          15
+    ReplacementText: 'dpct::library_data_t'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/include/cudnn_frontend_ConvDesc.h'
+    Offset:          6305
+    Length:          22
+    ReplacementText: int
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/include/cudnn_frontend_ConvDesc.h'
+    Offset:          6637
+    Length:          15
+    ReplacementText: 'dpct::library_data_t'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/include/cudnn_frontend_ConvDesc.h'
+    Offset:          6804
+    Length:          15
+    ReplacementText: 'dpct::library_data_t'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/include/cudnn_frontend_ConvDesc.h'
+    Offset:          7417
+    Length:          22
+    ReplacementText: '2000'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/include/cudnn_frontend_ConvDesc.h'
+    Offset:          7741
+    Length:          22
+    ReplacementText: '2000'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/include/cudnn_frontend_ConvDesc.h'
+    Offset:          8002
+    Length:          0
+    ReplacementText: "        /*\n        DPCT1007:264: Migration of CUDNN_BACKEND_CONVOLUTION_DESCRIPTOR is not supported.\n        */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/include/cudnn_frontend_ConvDesc.h'
+    Offset:          8131
+    Length:          20
+    ReplacementText: '0'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/include/cudnn_frontend_ConvDesc.h'
+    Offset:          8375
+    Length:          20
+    ReplacementText: '0'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/include/cudnn_frontend_ConvDesc.h'
+    Offset:          8661
+    Length:          15
+    ReplacementText: 'dpct::library_data_t'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/include/cudnn_frontend_ConvDesc.h'
+    Offset:          8806
+    Length:          20
+    ReplacementText: '0'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/include/cudnn_frontend_ConvDesc.h'
+    Offset:          9182
+    Length:          0
+    ReplacementText: "                                               /*\n                                               DPCT1007:265: Migration of CUDNN_ATTR_CONVOLUTION_COMP_TYPE is not supported.\n                                               */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/include/cudnn_frontend_ConvDesc.h'
+    Offset:          9263
+    Length:          0
+    ReplacementText: "                                               /*\n                                               DPCT1007:266: Migration of CUDNN_TYPE_DATA_TYPE is not supported.\n                                               */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/include/cudnn_frontend_ConvDesc.h'
+    Offset:          9470
+    Length:          20
+    ReplacementText: '0'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/include/cudnn_frontend_ConvDesc.h'
+    Offset:          9847
+    Length:          0
+    ReplacementText: "                                               /*\n                                               DPCT1007:267: Migration of CUDNN_ATTR_CONVOLUTION_CONV_MODE is not supported.\n                                               */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/include/cudnn_frontend_ConvDesc.h'
+    Offset:          9928
+    Length:          0
+    ReplacementText: "                                               /*\n                                               DPCT1007:268: Migration of CUDNN_TYPE_CONVOLUTION_MODE is not supported.\n                                               */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/include/cudnn_frontend_ConvDesc.h'
+    Offset:          10142
+    Length:          20
+    ReplacementText: '0'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/include/cudnn_frontend_ConvDesc.h'
+    Offset:          10519
+    Length:          0
+    ReplacementText: "                                               /*\n                                               DPCT1007:269: Migration of CUDNN_ATTR_CONVOLUTION_SPATIAL_DIMS is not supported.\n                                               */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/include/cudnn_frontend_ConvDesc.h'
+    Offset:          10603
+    Length:          0
+    ReplacementText: "                                               /*\n                                               DPCT1007:270: Migration of CUDNN_TYPE_INT64 is not supported.\n                                               */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/include/cudnn_frontend_ConvDesc.h'
+    Offset:          10807
+    Length:          20
+    ReplacementText: '0'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/include/cudnn_frontend_ConvDesc.h'
+    Offset:          11187
+    Length:          0
+    ReplacementText: "                                               /*\n                                               DPCT1007:271: Migration of CUDNN_ATTR_CONVOLUTION_PRE_PADDINGS is not supported.\n                                               */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/include/cudnn_frontend_ConvDesc.h'
+    Offset:          11271
+    Length:          0
+    ReplacementText: "                                               /*\n                                               DPCT1007:272: Migration of CUDNN_TYPE_INT64 is not supported.\n                                               */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/include/cudnn_frontend_ConvDesc.h'
+    Offset:          11492
+    Length:          20
+    ReplacementText: '0'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/include/cudnn_frontend_ConvDesc.h'
+    Offset:          11872
+    Length:          0
+    ReplacementText: "                                               /*\n                                               DPCT1007:273: Migration of CUDNN_ATTR_CONVOLUTION_POST_PADDINGS is not supported.\n                                               */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/include/cudnn_frontend_ConvDesc.h'
+    Offset:          11957
+    Length:          0
+    ReplacementText: "                                               /*\n                                               DPCT1007:274: Migration of CUDNN_TYPE_INT64 is not supported.\n                                               */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/include/cudnn_frontend_ConvDesc.h'
+    Offset:          12178
+    Length:          20
+    ReplacementText: '0'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/include/cudnn_frontend_ConvDesc.h'
+    Offset:          12559
+    Length:          0
+    ReplacementText: "                                               /*\n                                               DPCT1007:275: Migration of CUDNN_ATTR_CONVOLUTION_DILATIONS is not supported.\n                                               */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/include/cudnn_frontend_ConvDesc.h'
+    Offset:          12640
+    Length:          0
+    ReplacementText: "                                               /*\n                                               DPCT1007:276: Migration of CUDNN_TYPE_INT64 is not supported.\n                                               */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/include/cudnn_frontend_ConvDesc.h'
+    Offset:          12861
+    Length:          20
+    ReplacementText: '0'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/include/cudnn_frontend_ConvDesc.h'
+    Offset:          13238
+    Length:          0
+    ReplacementText: "                                               /*\n                                               DPCT1007:277: Migration of CUDNN_ATTR_CONVOLUTION_FILTER_STRIDES is not supported.\n                                               */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/include/cudnn_frontend_ConvDesc.h'
+    Offset:          13324
+    Length:          0
+    ReplacementText: "                                               /*\n                                               DPCT1007:278: Migration of CUDNN_TYPE_INT64 is not supported.\n                                               */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/include/cudnn_frontend_ConvDesc.h'
+    Offset:          13543
+    Length:          20
+    ReplacementText: '0'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/include/cudnn_frontend_ConvDesc.h'
+    Offset:          13980
+    Length:          20
+    ReplacementText: '0'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+MainSourceFilesDigest:
+  - MainSourceFile:  '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/include/cudnn_frontend_ConvDesc.h'
+    Digest:          6f4115c440c083705e2ae91bbc41e93b
+DpctVersion:     2024.2.0
+MainHelperFileName: ''
+USMLevel:        ''
+FeatureMap:      {}
+CompileTargets:  {}
+OptionMap:
+  AnalysisScopePath:
+    Value:           '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend'
+    Specified:       false
+  AsyncHandler:
+    Value:           'false'
+    Specified:       false
+  BuildScript:
+    Value:           '1'
+    Specified:       true
+  CodePinEnabled:
+    Value:           'false'
+    Specified:       false
+  CommentsEnabled:
+    Value:           'false'
+    Specified:       false
+  CompilationsDir:
+    Value:           '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/build'
+    Specified:       true
+  CtadEnabled:
+    Value:           'false'
+    Specified:       false
+  EnablepProfiling:
+    Value:           'false'
+    Specified:       false
+  ExperimentalFlag:
+    Value:           '0'
+    Specified:       false
+  ExplicitNamespace:
+    Value:           '20'
+    Specified:       false
+  ExtensionDDFlag:
+    Value:           '0'
+    Specified:       false
+  ExtensionDEFlag:
+    Value:           '4294967295'
+    Specified:       false
+  HelperFuncPreferenceFlag:
+    Value:           '0'
+    Specified:       false
+  NDRangeDim:
+    Value:           '3'
+    Specified:       false
+  NoDRYPattern:
+    Value:           'false'
+    Specified:       false
+  OptimizeMigration:
+    Value:           'false'
+    Specified:       false
+  ProcessAll:
+    Value:           'false'
+    Specified:       false
+  RuleFile:
+    Value:           ''
+    ValueVec:
+      - '/opt/intel/oneapi/dpcpp-ct/2024.2/extensions/cmake_rules/cmake_script_migration_rule.yaml'
+    Specified:       false
+  SyclNamedLambda:
+    Value:           'false'
+    Specified:       false
+  UsmLevel:
+    Value:           '1'
+    Specified:       false
+...

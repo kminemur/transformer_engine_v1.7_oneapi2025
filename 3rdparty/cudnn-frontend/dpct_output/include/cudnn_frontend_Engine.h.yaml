@@ -1,0 +1,336 @@
+---
+MainSourceFile:  '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/build/dpct_output/include/cudnn_frontend_Engine.h'
+Replacements:
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/include/cudnn_frontend_Engine.h'
+    Offset:          1162
+    Length:          0
+    ReplacementText: "#define DPCT_PROFILING_ENABLED\n#include <sycl/sycl.hpp>\n#include <dpct/dpct.hpp>\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/include/cudnn_frontend_Engine.h'
+    Offset:          3110
+    Length:          0
+    ReplacementText: "        /*\n        DPCT1007:572: Migration of CUDNN_KNOB_TYPE_COUNTS is not supported.\n        */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/include/cudnn_frontend_Engine.h'
+    Offset:          3610
+    Length:          0
+    ReplacementText: "    /*\n    DPCT1007:573: Migration of CUDNN_KNOB_TYPE_COUNTS is not supported.\n    */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/include/cudnn_frontend_Engine.h'
+    Offset:          3892
+    Length:          13
+    ReplacementText: 'dpct::err1'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/include/cudnn_frontend_Engine.h'
+    Offset:          4174
+    Length:          0
+    ReplacementText: "                /*\n                DPCT1007:574: Migration of CUDNN_ATTR_KNOB_INFO_TYPE is not supported.\n                */\n                /*\n                DPCT1007:575: Migration of CUDNN_TYPE_KNOB_TYPE is not supported.\n                */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/include/cudnn_frontend_Engine.h'
+    Offset:          4295
+    Length:          20
+    ReplacementText: '0'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/include/cudnn_frontend_Engine.h'
+    Offset:          4704
+    Length:          0
+    ReplacementText: "                /*\n                DPCT1007:576: Migration of CUDNN_ATTR_KNOB_INFO_MAXIMUM_VALUE is not supported.\n                */\n                /*\n                DPCT1007:577: Migration of CUDNN_TYPE_INT64 is not supported.\n                */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/include/cudnn_frontend_Engine.h'
+    Offset:          4834
+    Length:          20
+    ReplacementText: '0'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/include/cudnn_frontend_Engine.h'
+    Offset:          5252
+    Length:          0
+    ReplacementText: "                /*\n                DPCT1007:578: Migration of CUDNN_ATTR_KNOB_INFO_MINIMUM_VALUE is not supported.\n                */\n                /*\n                DPCT1007:579: Migration of CUDNN_TYPE_INT64 is not supported.\n                */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/include/cudnn_frontend_Engine.h'
+    Offset:          5382
+    Length:          20
+    ReplacementText: '0'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/include/cudnn_frontend_Engine.h'
+    Offset:          5800
+    Length:          0
+    ReplacementText: "                /*\n                DPCT1007:580: Migration of CUDNN_ATTR_KNOB_INFO_STRIDE is not supported.\n                */\n                /*\n                DPCT1007:581: Migration of CUDNN_TYPE_INT64 is not supported.\n                */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/include/cudnn_frontend_Engine.h'
+    Offset:          5921
+    Length:          20
+    ReplacementText: '0'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/include/cudnn_frontend_Engine.h'
+    Offset:          8556
+    Length:          22
+    ReplacementText: '2000'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/include/cudnn_frontend_Engine.h'
+    Offset:          8876
+    Length:          22
+    ReplacementText: '2000'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/include/cudnn_frontend_Engine.h'
+    Offset:          9131
+    Length:          0
+    ReplacementText: "        /*\n        DPCT1007:582: Migration of CUDNN_BACKEND_ENGINE_DESCRIPTOR is not supported.\n        */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/include/cudnn_frontend_Engine.h'
+    Offset:          9253
+    Length:          20
+    ReplacementText: '0'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/include/cudnn_frontend_Engine.h'
+    Offset:          9564
+    Length:          0
+    ReplacementText: "                                               /*\n                                               DPCT1007:583: Migration of CUDNN_ATTR_ENGINE_OPERATION_GRAPH is not supported.\n                                               */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/include/cudnn_frontend_Engine.h'
+    Offset:          9646
+    Length:          0
+    ReplacementText: "                                               /*\n                                               DPCT1007:584: Migration of CUDNN_TYPE_BACKEND_DESCRIPTOR is not supported.\n                                               */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/include/cudnn_frontend_Engine.h'
+    Offset:          9891
+    Length:          20
+    ReplacementText: '0'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/include/cudnn_frontend_Engine.h'
+    Offset:          10258
+    Length:          0
+    ReplacementText: "                                               /*\n                                               DPCT1007:585: Migration of CUDNN_ATTR_ENGINE_GLOBAL_INDEX is not supported.\n                                               */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/include/cudnn_frontend_Engine.h'
+    Offset:          10337
+    Length:          0
+    ReplacementText: "                                               /*\n                                               DPCT1007:586: Migration of CUDNN_TYPE_INT64 is not supported.\n                                               */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/include/cudnn_frontend_Engine.h'
+    Offset:          10537
+    Length:          20
+    ReplacementText: '0'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/include/cudnn_frontend_Engine.h'
+    Offset:          10956
+    Length:          20
+    ReplacementText: '0'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/include/cudnn_frontend_Engine.h'
+    Offset:          11212
+    Length:          0
+    ReplacementText: "            /*\n            DPCT1007:587: Migration of CUDNN_BACKEND_KNOB_INFO_DESCRIPTOR is not supported.\n            */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/include/cudnn_frontend_Engine.h'
+    Offset:          11669
+    Length:          0
+    ReplacementText: "        /*\n        DPCT1007:588: Migration of CUDNN_KNOB_TYPE_COUNTS is not supported.\n        */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/include/cudnn_frontend_Engine.h'
+    Offset:          12047
+    Length:          0
+    ReplacementText: "                                               /*\n                                               DPCT1007:589: Migration of CUDNN_ATTR_ENGINE_KNOB_INFO is not supported.\n                                               */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/include/cudnn_frontend_Engine.h'
+    Offset:          12123
+    Length:          0
+    ReplacementText: "                                               /*\n                                               DPCT1007:590: Migration of CUDNN_TYPE_BACKEND_DESCRIPTOR is not supported.\n                                               */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/include/cudnn_frontend_Engine.h'
+    Offset:          12201
+    Length:          0
+    ReplacementText: "                                               /*\n                                               DPCT1007:591: Migration of CUDNN_KNOB_TYPE_COUNTS is not supported.\n                                               */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/include/cudnn_frontend_Engine.h'
+    Offset:          12425
+    Length:          20
+    ReplacementText: '0'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+MainSourceFilesDigest:
+  - MainSourceFile:  '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/include/cudnn_frontend_Engine.h'
+    Digest:          d455f47ba68c6538a38a0eb0d3eafa1c
+DpctVersion:     2024.2.0
+MainHelperFileName: ''
+USMLevel:        ''
+FeatureMap:      {}
+CompileTargets:  {}
+OptionMap:
+  AnalysisScopePath:
+    Value:           '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend'
+    Specified:       false
+  AsyncHandler:
+    Value:           'false'
+    Specified:       false
+  BuildScript:
+    Value:           '1'
+    Specified:       true
+  CodePinEnabled:
+    Value:           'false'
+    Specified:       false
+  CommentsEnabled:
+    Value:           'false'
+    Specified:       false
+  CompilationsDir:
+    Value:           '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/build'
+    Specified:       true
+  CtadEnabled:
+    Value:           'false'
+    Specified:       false
+  EnablepProfiling:
+    Value:           'false'
+    Specified:       false
+  ExperimentalFlag:
+    Value:           '0'
+    Specified:       false
+  ExplicitNamespace:
+    Value:           '20'
+    Specified:       false
+  ExtensionDDFlag:
+    Value:           '0'
+    Specified:       false
+  ExtensionDEFlag:
+    Value:           '4294967295'
+    Specified:       false
+  HelperFuncPreferenceFlag:
+    Value:           '0'
+    Specified:       false
+  NDRangeDim:
+    Value:           '3'
+    Specified:       false
+  NoDRYPattern:
+    Value:           'false'
+    Specified:       false
+  OptimizeMigration:
+    Value:           'false'
+    Specified:       false
+  ProcessAll:
+    Value:           'false'
+    Specified:       false
+  RuleFile:
+    Value:           ''
+    ValueVec:
+      - '/opt/intel/oneapi/dpcpp-ct/2024.2/extensions/cmake_rules/cmake_script_migration_rule.yaml'
+    Specified:       false
+  SyclNamedLambda:
+    Value:           'false'
+    Specified:       false
+  UsmLevel:
+    Value:           '1'
+    Specified:       false
+...

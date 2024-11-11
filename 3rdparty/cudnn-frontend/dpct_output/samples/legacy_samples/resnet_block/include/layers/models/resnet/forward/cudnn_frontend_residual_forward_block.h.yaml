@@ -1,0 +1,642 @@
+---
+MainSourceFile:  '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/build/dpct_output/samples/legacy_samples/resnet_block/include/layers/models/resnet/forward/cudnn_frontend_residual_forward_block.h'
+Replacements:
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/forward/cudnn_frontend_residual_forward_block.h'
+    Offset:          14
+    Length:          0
+    ReplacementText: "#include <dpct/dnnl_utils.hpp>\n#define DPCT_PROFILING_ENABLED\n#include <sycl/sycl.hpp>\n#include <dpct/dpct.hpp>\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/forward/cudnn_frontend_residual_forward_block.h'
+    Offset:          115
+    Length:          26
+    ReplacementText: ''
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/forward/cudnn_frontend_residual_forward_block.h'
+    Offset:          225
+    Length:          19
+    ReplacementText: ''
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/forward/cudnn_frontend_residual_forward_block.h'
+    Offset:          1477
+    Length:          13
+    ReplacementText: 'dpct::dnnl::engine_ext'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/forward/cudnn_frontend_residual_forward_block.h'
+    Offset:          2366
+    Length:          13
+    ReplacementText: 'dpct::err1'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/forward/cudnn_frontend_residual_forward_block.h'
+    Offset:          15179
+    Length:          20
+    ReplacementText: '0'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/forward/cudnn_frontend_residual_forward_block.h'
+    Offset:          15686
+    Length:          13
+    ReplacementText: 'dpct::err1'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/forward/cudnn_frontend_residual_forward_block.h'
+    Offset:          15918
+    Length:          20
+    ReplacementText: '0'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/forward/cudnn_frontend_residual_forward_block.h'
+    Offset:          16125
+    Length:          20
+    ReplacementText: '0'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/forward/cudnn_frontend_residual_forward_block.h'
+    Offset:          16280
+    Length:          20
+    ReplacementText: '0'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/forward/cudnn_frontend_residual_forward_block.h'
+    Offset:          16314
+    Length:          13
+    ReplacementText: 'dpct::err1'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/forward/cudnn_frontend_residual_forward_block.h'
+    Offset:          16376
+    Length:          20
+    ReplacementText: '0'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/forward/cudnn_frontend_residual_forward_block.h'
+    Offset:          17066
+    Length:          17
+    ReplacementText: 'dpct::dnnl::memory_format_tag::nhwc'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/forward/cudnn_frontend_residual_forward_block.h'
+    Offset:          17915
+    Length:          17
+    ReplacementText: 'dpct::dnnl::memory_format_tag::nhwc'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/forward/cudnn_frontend_residual_forward_block.h'
+    Offset:          18778
+    Length:          17
+    ReplacementText: 'dpct::dnnl::memory_format_tag::nhwc'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/forward/cudnn_frontend_residual_forward_block.h'
+    Offset:          25993
+    Length:          13
+    ReplacementText: 'dpct::err1'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/forward/cudnn_frontend_residual_forward_block.h'
+    Offset:          26059
+    Length:          20
+    ReplacementText: '0'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/forward/cudnn_frontend_residual_forward_block.h'
+    Offset:          26753
+    Length:          17
+    ReplacementText: 'dpct::dnnl::memory_format_tag::nhwc'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/forward/cudnn_frontend_residual_forward_block.h'
+    Offset:          26976
+    Length:          17
+    ReplacementText: 'dpct::dnnl::memory_format_tag::nhwc'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/forward/cudnn_frontend_residual_forward_block.h'
+    Offset:          39504
+    Length:          13
+    ReplacementText: 'dpct::err1'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/forward/cudnn_frontend_residual_forward_block.h'
+    Offset:          39663
+    Length:          0
+    ReplacementText: "            /*\n            DPCT1007:916: Migration of CUDNN_POINTWISE_MUL is not supported.\n            */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/forward/cudnn_frontend_residual_forward_block.h'
+    Offset:          39744
+    Length:          16
+    ReplacementText: 'dpct::library_data_t::real_float'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/forward/cudnn_frontend_residual_forward_block.h'
+    Offset:          40031
+    Length:          24
+    ReplacementText: 'dpct::dnnl::reduction_op::amax'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/forward/cudnn_frontend_residual_forward_block.h'
+    Offset:          40074
+    Length:          16
+    ReplacementText: 'dpct::library_data_t::real_float'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/forward/cudnn_frontend_residual_forward_block.h'
+    Offset:          40302
+    Length:          0
+    ReplacementText: "                        /*\n                        DPCT1007:917: Migration of CUDNN_POINTWISE_RELU_FWD is not supported.\n                        */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/forward/cudnn_frontend_residual_forward_block.h'
+    Offset:          40599
+    Length:          0
+    ReplacementText: "        /*\n        DPCT1007:918: Migration of CUDNN_POINTWISE_ADD is not supported.\n        */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/forward/cudnn_frontend_residual_forward_block.h'
+    Offset:          40685
+    Length:          16
+    ReplacementText: 'dpct::library_data_t::real_float'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/forward/cudnn_frontend_residual_forward_block.h'
+    Offset:          41669
+    Length:          23
+    ReplacementText: '1'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/forward/cudnn_frontend_residual_forward_block.h'
+    Offset:          42399
+    Length:          20
+    ReplacementText: '0'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/forward/cudnn_frontend_residual_forward_block.h'
+    Offset:          43253
+    Length:          0
+    ReplacementText: "                 /*\n                 DPCT1007:919: Migration of CUDNN_BACKEND_OPERATION_CONVOLUTION_FORWARD_DESCRIPTOR is not supported.\n                 */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/forward/cudnn_frontend_residual_forward_block.h'
+    Offset:          43581
+    Length:          0
+    ReplacementText: "                 /*\n                 DPCT1007:920: Migration of CUDNN_BACKEND_OPERATION_POINTWISE_DESCRIPTOR is not supported.\n                 */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/forward/cudnn_frontend_residual_forward_block.h'
+    Offset:          43936
+    Length:          0
+    ReplacementText: "                 /*\n                 DPCT1007:921: Migration of CUDNN_BACKEND_OPERATION_POINTWISE_DESCRIPTOR is not supported.\n                 */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/forward/cudnn_frontend_residual_forward_block.h'
+    Offset:          44293
+    Length:          0
+    ReplacementText: "                 /*\n                 DPCT1007:922: Migration of CUDNN_BACKEND_OPERATION_POINTWISE_DESCRIPTOR is not supported.\n                 */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/forward/cudnn_frontend_residual_forward_block.h'
+    Offset:          44623
+    Length:          0
+    ReplacementText: "                 /*\n                 DPCT1007:923: Migration of CUDNN_BACKEND_OPERATION_REDUCTION_DESCRIPTOR is not supported.\n                 */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/forward/cudnn_frontend_residual_forward_block.h'
+    Offset:          45143
+    Length:          0
+    ReplacementText: "                                         /*\n                                         DPCT1007:924: Migration of CUDNN_BACKEND_OPERATION_POINTWISE_DESCRIPTOR is not supported.\n                                         */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/forward/cudnn_frontend_residual_forward_block.h'
+    Offset:          45610
+    Length:          0
+    ReplacementText: "                                         /*\n                                         DPCT1007:925: Migration of CUDNN_BACKEND_OPERATION_NORM_FORWARD_DESCRIPTOR is not supported.\n                                         */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/forward/cudnn_frontend_residual_forward_block.h'
+    Offset:          46851
+    Length:          0
+    ReplacementText: "                                         /*\n                                         DPCT1007:926: Migration of CUDNN_BACKEND_OPERATION_POINTWISE_DESCRIPTOR is not supported.\n                                         */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/forward/cudnn_frontend_residual_forward_block.h'
+    Offset:          47208
+    Length:          0
+    ReplacementText: "                                         /*\n                                         DPCT1007:927: Migration of CUDNN_BACKEND_OPERATION_POINTWISE_DESCRIPTOR is not supported.\n                                         */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/forward/cudnn_frontend_residual_forward_block.h'
+    Offset:          47679
+    Length:          0
+    ReplacementText: "                                         /*\n                                         DPCT1007:928: Migration of CUDNN_BACKEND_OPERATION_REDUCTION_DESCRIPTOR is not supported.\n                                         */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/forward/cudnn_frontend_residual_forward_block.h'
+    Offset:          48212
+    Length:          0
+    ReplacementText: "                                         /*\n                                         DPCT1007:929: Migration of CUDNN_BACKEND_OPERATION_POINTWISE_DESCRIPTOR is not supported.\n                                         */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/forward/cudnn_frontend_residual_forward_block.h'
+    Offset:          48682
+    Length:          0
+    ReplacementText: "                                         /*\n                                         DPCT1007:930: Migration of CUDNN_BACKEND_OPERATION_NORM_FORWARD_DESCRIPTOR is not supported.\n                                         */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/forward/cudnn_frontend_residual_forward_block.h'
+    Offset:          49926
+    Length:          0
+    ReplacementText: "                                         /*\n                                         DPCT1007:931: Migration of CUDNN_BACKEND_OPERATION_POINTWISE_DESCRIPTOR is not supported.\n                                         */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/forward/cudnn_frontend_residual_forward_block.h'
+    Offset:          50396
+    Length:          0
+    ReplacementText: "                                         /*\n                                         DPCT1007:932: Migration of CUDNN_BACKEND_OPERATION_POINTWISE_DESCRIPTOR is not supported.\n                                         */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/forward/cudnn_frontend_residual_forward_block.h'
+    Offset:          50865
+    Length:          0
+    ReplacementText: "                                         /*\n                                         DPCT1007:933: Migration of CUDNN_BACKEND_OPERATION_POINTWISE_DESCRIPTOR is not supported.\n                                         */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/forward/cudnn_frontend_residual_forward_block.h'
+    Offset:          51224
+    Length:          0
+    ReplacementText: "                                         /*\n                                         DPCT1007:934: Migration of CUDNN_BACKEND_OPERATION_POINTWISE_DESCRIPTOR is not supported.\n                                         */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/forward/cudnn_frontend_residual_forward_block.h'
+    Offset:          51695
+    Length:          0
+    ReplacementText: "                                         /*\n                                         DPCT1007:935: Migration of CUDNN_BACKEND_OPERATION_REDUCTION_DESCRIPTOR is not supported.\n                                         */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/forward/cudnn_frontend_residual_forward_block.h'
+    Offset:          52237
+    Length:          0
+    ReplacementText: "                                         /*\n                                         DPCT1007:936: Migration of CUDNN_BACKEND_OPERATION_POINTWISE_DESCRIPTOR is not supported.\n                                         */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/forward/cudnn_frontend_residual_forward_block.h'
+    Offset:          52700
+    Length:          0
+    ReplacementText: "                                         /*\n                                         DPCT1007:937: Migration of CUDNN_BACKEND_OPERATION_NORM_FORWARD_DESCRIPTOR is not supported.\n                                         */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/forward/cudnn_frontend_residual_forward_block.h'
+    Offset:          53942
+    Length:          0
+    ReplacementText: "                                         /*\n                                         DPCT1007:938: Migration of CUDNN_BACKEND_OPERATION_POINTWISE_DESCRIPTOR is not supported.\n                                         */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/forward/cudnn_frontend_residual_forward_block.h'
+    Offset:          54408
+    Length:          0
+    ReplacementText: "                                         /*\n                                         DPCT1007:939: Migration of CUDNN_BACKEND_OPERATION_REDUCTION_DESCRIPTOR is not supported.\n                                         */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/forward/cudnn_frontend_residual_forward_block.h'
+    Offset:          55731
+    Length:          13
+    ReplacementText: 'dpct::err1'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/forward/cudnn_frontend_residual_forward_block.h'
+    Offset:          55762
+    Length:          13
+    ReplacementText: 'dpct::dnnl::engine_ext'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/forward/cudnn_frontend_residual_forward_block.h'
+    Offset:          56921
+    Length:          29
+    ReplacementText: '5000'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/forward/cudnn_frontend_residual_forward_block.h'
+    Offset:          57212
+    Length:          0
+    ReplacementText: "                /*\n                DPCT1007:940: Migration of CUDNN_BACKEND_OPERATION_CONVOLUTION_FORWARD_DESCRIPTOR is not supported.\n                */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/forward/cudnn_frontend_residual_forward_block.h'
+    Offset:          57916
+    Length:          29
+    ReplacementText: '5000'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/forward/cudnn_frontend_residual_forward_block.h'
+    Offset:          60184
+    Length:          0
+    ReplacementText: "                /*\n                DPCT1007:941: Migration of CUDNN_BACKEND_OPERATION_POINTWISE_DESCRIPTOR is not supported.\n                */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/forward/cudnn_frontend_residual_forward_block.h'
+    Offset:          60592
+    Length:          29
+    ReplacementText: '5000'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/forward/cudnn_frontend_residual_forward_block.h'
+    Offset:          64456
+    Length:          0
+    ReplacementText: "                /*\n                DPCT1007:942: Migration of CUDNN_BACKEND_OPERATION_REDUCTION_DESCRIPTOR is not supported.\n                */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/forward/cudnn_frontend_residual_forward_block.h'
+    Offset:          64864
+    Length:          29
+    ReplacementText: '5000'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/forward/cudnn_frontend_residual_forward_block.h'
+    Offset:          66911
+    Length:          0
+    ReplacementText: "                /*\n                DPCT1007:943: Migration of CUDNN_BACKEND_OPERATION_NORM_FORWARD_DESCRIPTOR is not supported.\n                */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/forward/cudnn_frontend_residual_forward_block.h'
+    Offset:          67198
+    Length:          0
+    ReplacementText: "                                /*\n                                DPCT1007:945: Migration of CUDNN_BATCH_NORM is not supported.\n                                */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/forward/cudnn_frontend_residual_forward_block.h'
+    Offset:          67270
+    Length:          0
+    ReplacementText: "                                /*\n                                DPCT1007:944: Migration of CUDNN_NORM_FWD_TRAINING is not supported.\n                                */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/forward/cudnn_frontend_residual_forward_block.h'
+    Offset:          70368
+    Length:          20
+    ReplacementText: '0'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+MainSourceFilesDigest:
+  - MainSourceFile:  '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/models/resnet/forward/cudnn_frontend_residual_forward_block.h'
+    Digest:          66f4cef923a026f5a6e091e3f2eb6327
+DpctVersion:     2024.2.0
+MainHelperFileName: ''
+USMLevel:        ''
+FeatureMap:      {}
+CompileTargets:  {}
+OptionMap:
+  AnalysisScopePath:
+    Value:           '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend'
+    Specified:       false
+  AsyncHandler:
+    Value:           'false'
+    Specified:       false
+  BuildScript:
+    Value:           '1'
+    Specified:       true
+  CodePinEnabled:
+    Value:           'false'
+    Specified:       false
+  CommentsEnabled:
+    Value:           'false'
+    Specified:       false
+  CompilationsDir:
+    Value:           '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/build'
+    Specified:       true
+  CtadEnabled:
+    Value:           'false'
+    Specified:       false
+  EnablepProfiling:
+    Value:           'false'
+    Specified:       false
+  ExperimentalFlag:
+    Value:           '0'
+    Specified:       false
+  ExplicitNamespace:
+    Value:           '20'
+    Specified:       false
+  ExtensionDDFlag:
+    Value:           '0'
+    Specified:       false
+  ExtensionDEFlag:
+    Value:           '4294967295'
+    Specified:       false
+  HelperFuncPreferenceFlag:
+    Value:           '0'
+    Specified:       false
+  NDRangeDim:
+    Value:           '3'
+    Specified:       false
+  NoDRYPattern:
+    Value:           'false'
+    Specified:       false
+  OptimizeMigration:
+    Value:           'false'
+    Specified:       false
+  ProcessAll:
+    Value:           'false'
+    Specified:       false
+  RuleFile:
+    Value:           ''
+    ValueVec:
+      - '/opt/intel/oneapi/dpcpp-ct/2024.2/extensions/cmake_rules/cmake_script_migration_rule.yaml'
+    Specified:       false
+  SyclNamedLambda:
+    Value:           'false'
+    Specified:       false
+  UsmLevel:
+    Value:           '1'
+    Specified:       false
+...

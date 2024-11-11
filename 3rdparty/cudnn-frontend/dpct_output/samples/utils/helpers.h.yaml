@@ -1,0 +1,1047 @@
+---
+MainSourceFile:  '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/build/dpct_output/samples/utils/helpers.h'
+Replacements:
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          1161
+    Length:          0
+    ReplacementText: "#include <dpct/dnnl_utils.hpp>\n#define DPCT_PROFILING_ENABLED\n#include <sycl/sycl.hpp>\n#include <dpct/dpct.hpp>\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          1262
+    Length:          26
+    ReplacementText: ''
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          1350
+    Length:          19
+    ReplacementText: ''
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          2529
+    Length:          19
+    ReplacementText: 'dpct::dnnl::memory_format_tag'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          2651
+    Length:          19
+    ReplacementText: 'dpct::dnnl::memory_format_tag'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          2984
+    Length:          11
+    ReplacementText: 'dpct::err0'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          3073
+    Length:          13
+    ReplacementText: 'dpct::err1'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          3805
+    Length:          15
+    ReplacementText: 'dpct::library_data_t'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          6610
+    Length:          0
+    ReplacementText: ' try '
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          6611
+    Length:          0
+    ReplacementText: "\n    dpct::device_ext &dev_ct1 = dpct::get_current_device();\n    sycl::queue &q_ct1 = dev_ct1.in_order_queue();"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          6612
+    Length:          0
+    ReplacementText: "        /*\n        DPCT1064:832: Migrated cudaMalloc call is used in a macro/template definition and may not be valid for all macro/template uses. Adjust the code.\n        */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          6633
+    Length:          68
+    ReplacementText: 'DPCT_CHECK_ERROR(devPtrX = (T_ELEM *)sycl::malloc_device(size_t((Xsize) * sizeof(devPtrX[0])), dpct::get_in_order_queue()))'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          6704
+    Length:          0
+    ReplacementText: "        /*\n        DPCT1064:833: Migrated cudaMalloc call is used in a macro/template definition and may not be valid for all macro/template uses. Adjust the code.\n        */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          6725
+    Length:          68
+    ReplacementText: 'DPCT_CHECK_ERROR(devPtrW = (T_ELEM *)sycl::malloc_device(size_t((Wsize) * sizeof(devPtrW[0])), dpct::get_in_order_queue()))'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          6796
+    Length:          0
+    ReplacementText: "        /*\n        DPCT1064:834: Migrated cudaMalloc call is used in a macro/template definition and may not be valid for all macro/template uses. Adjust the code.\n        */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          6817
+    Length:          68
+    ReplacementText: 'DPCT_CHECK_ERROR(devPtrY = (T_ELEM *)sycl::malloc_device(size_t((Ysize) * sizeof(devPtrY[0])), dpct::get_in_order_queue()))'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          7293
+    Length:          10
+    ReplacementText: 'DPCT_CHECK_ERROR(dpct::get_in_order_queue().memcpy'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          7352
+    Length:          24
+    ReplacementText: ''
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          7377
+    Length:          0
+    ReplacementText: '.wait())'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          7401
+    Length:          10
+    ReplacementText: 'DPCT_CHECK_ERROR(dpct::get_in_order_queue().memcpy'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          7460
+    Length:          24
+    ReplacementText: ''
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          7485
+    Length:          0
+    ReplacementText: '.wait())'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          7509
+    Length:          10
+    ReplacementText: 'DPCT_CHECK_ERROR(dpct::get_in_order_queue().memcpy'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          7568
+    Length:          24
+    ReplacementText: ''
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          7593
+    Length:          0
+    ReplacementText: '.wait())'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          7617
+    Length:          23
+    ReplacementText: 'DPCT_CHECK_ERROR(dpct::get_current_device().queues_wait_and_throw())'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          7648
+    Length:          0
+    ReplacementText: "\n    catch (sycl::exception const &exc) {\n      std::cerr << exc.what() << \"Exception caught at file:\" << __FILE__ << \", line:\" << __LINE__ << std::endl;\n      std::exit(1);\n    }"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          7758
+    Length:          0
+    ReplacementText: ' try '
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          7759
+    Length:          0
+    ReplacementText: "\n    dpct::device_ext &dev_ct1 = dpct::get_current_device();\n    sycl::queue &q_ct1 = dev_ct1.in_order_queue();"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          7790
+    Length:          0
+    ReplacementText: "        /*\n        DPCT1064:835: Migrated cudaMalloc call is used in a macro/template definition and may not be valid for all macro/template uses. Adjust the code.\n        */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          7811
+    Length:          68
+    ReplacementText: 'DPCT_CHECK_ERROR(devPtrX = (T_ELEM *)sycl::malloc_device(size_t((Xsize) * sizeof(devPtrX[0])), dpct::get_in_order_queue()))'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          7882
+    Length:          0
+    ReplacementText: "        /*\n        DPCT1064:836: Migrated cudaMalloc call is used in a macro/template definition and may not be valid for all macro/template uses. Adjust the code.\n        */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          7903
+    Length:          68
+    ReplacementText: 'DPCT_CHECK_ERROR(devPtrW = (T_ELEM *)sycl::malloc_device(size_t((Wsize) * sizeof(devPtrW[0])), dpct::get_in_order_queue()))'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          7974
+    Length:          0
+    ReplacementText: "        /*\n        DPCT1064:837: Migrated cudaMalloc call is used in a macro/template definition and may not be valid for all macro/template uses. Adjust the code.\n        */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          7995
+    Length:          68
+    ReplacementText: 'DPCT_CHECK_ERROR(devPtrY = (T_ELEM *)sycl::malloc_device(size_t((Ysize) * sizeof(devPtrY[0])), dpct::get_in_order_queue()))'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          8066
+    Length:          0
+    ReplacementText: "        /*\n        DPCT1064:838: Migrated cudaMalloc call is used in a macro/template definition and may not be valid for all macro/template uses. Adjust the code.\n        */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          8087
+    Length:          68
+    ReplacementText: 'DPCT_CHECK_ERROR(devPtrZ = (T_ELEM *)sycl::malloc_device(size_t((Ysize) * sizeof(devPtrZ[0])), dpct::get_in_order_queue()))'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          8158
+    Length:          0
+    ReplacementText: "        /*\n        DPCT1064:839: Migrated cudaMalloc call is used in a macro/template definition and may not be valid for all macro/template uses. Adjust the code.\n        */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          8179
+    Length:          68
+    ReplacementText: 'DPCT_CHECK_ERROR(devPtrB = (T_ELEM *)sycl::malloc_device(size_t((Bsize) * sizeof(devPtrB[0])), dpct::get_in_order_queue()))'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          8250
+    Length:          0
+    ReplacementText: "        /*\n        DPCT1064:840: Migrated cudaMalloc call is used in a macro/template definition and may not be valid for all macro/template uses. Adjust the code.\n        */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          8271
+    Length:          84
+    ReplacementText: 'DPCT_CHECK_ERROR(devPtrAfterConv = (T_ELEM *)sycl::malloc_device(size_t((Ysize) * sizeof(devPtrAfterConv[0])), dpct::get_in_order_queue()))'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          8358
+    Length:          0
+    ReplacementText: "        /*\n        DPCT1064:841: Migrated cudaMalloc call is used in a macro/template definition and may not be valid for all macro/template uses. Adjust the code.\n        */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          8379
+    Length:          82
+    ReplacementText: 'DPCT_CHECK_ERROR(devPtrAfterAdd = (T_ELEM *)sycl::malloc_device(size_t((Ysize) * sizeof(devPtrAfterAdd[0])), dpct::get_in_order_queue()))'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          8464
+    Length:          0
+    ReplacementText: "        /*\n        DPCT1064:842: Migrated cudaMalloc call is used in a macro/template definition and may not be valid for all macro/template uses. Adjust the code.\n        */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          8485
+    Length:          84
+    ReplacementText: 'DPCT_CHECK_ERROR(devPtrAfterBias = (T_ELEM *)sycl::malloc_device(size_t((Ysize) * sizeof(devPtrAfterBias[0])), dpct::get_in_order_queue()))'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          9575
+    Length:          10
+    ReplacementText: 'DPCT_CHECK_ERROR(dpct::get_in_order_queue().memcpy'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          9636
+    Length:          24
+    ReplacementText: ''
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          9661
+    Length:          0
+    ReplacementText: '.wait())'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          9685
+    Length:          10
+    ReplacementText: 'DPCT_CHECK_ERROR(dpct::get_in_order_queue().memcpy'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          9746
+    Length:          24
+    ReplacementText: ''
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          9771
+    Length:          0
+    ReplacementText: '.wait())'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          9795
+    Length:          10
+    ReplacementText: 'DPCT_CHECK_ERROR(dpct::get_in_order_queue().memcpy'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          9856
+    Length:          24
+    ReplacementText: ''
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          9881
+    Length:          0
+    ReplacementText: '.wait())'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          9905
+    Length:          10
+    ReplacementText: 'DPCT_CHECK_ERROR(dpct::get_in_order_queue().memcpy'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          9966
+    Length:          24
+    ReplacementText: ''
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          9991
+    Length:          0
+    ReplacementText: '.wait())'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          10015
+    Length:          10
+    ReplacementText: 'DPCT_CHECK_ERROR(dpct::get_in_order_queue().memcpy'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          10076
+    Length:          24
+    ReplacementText: ''
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          10101
+    Length:          0
+    ReplacementText: '.wait())'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          10125
+    Length:          10
+    ReplacementText: 'DPCT_CHECK_ERROR(dpct::get_in_order_queue().memcpy'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          10220
+    Length:          24
+    ReplacementText: ''
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          10245
+    Length:          0
+    ReplacementText: '.wait())'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          10269
+    Length:          10
+    ReplacementText: 'DPCT_CHECK_ERROR(dpct::get_in_order_queue().memcpy'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          10367
+    Length:          24
+    ReplacementText: ''
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          10392
+    Length:          0
+    ReplacementText: '.wait())'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          10416
+    Length:          10
+    ReplacementText: 'DPCT_CHECK_ERROR(dpct::get_in_order_queue().memcpy'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          10514
+    Length:          24
+    ReplacementText: ''
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          10539
+    Length:          0
+    ReplacementText: '.wait())'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          10564
+    Length:          23
+    ReplacementText: 'DPCT_CHECK_ERROR(dpct::get_current_device().queues_wait_and_throw())'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          10595
+    Length:          0
+    ReplacementText: "\n    catch (sycl::exception const &exc) {\n      std::cerr << exc.what() << \"Exception caught at file:\" << __FILE__ << \", line:\" << __LINE__ << std::endl;\n      std::exit(1);\n    }"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          10620
+    Length:          0
+    ReplacementText: "\n    dpct::device_ext &dev_ct1 = dpct::get_current_device();\n    sycl::queue &q_ct1 = dev_ct1.in_order_queue();"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          10642
+    Length:          17
+    ReplacementText: 'dpct::dpct_free(devPtrX, q_ct1)'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          10682
+    Length:          17
+    ReplacementText: 'dpct::dpct_free(devPtrW, q_ct1)'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          10722
+    Length:          17
+    ReplacementText: 'dpct::dpct_free(devPtrY, q_ct1)'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          10762
+    Length:          17
+    ReplacementText: 'dpct::dpct_free(devPtrZ, q_ct1)'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          10802
+    Length:          17
+    ReplacementText: 'dpct::dpct_free(devPtrB, q_ct1)'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          10849
+    Length:          24
+    ReplacementText: 'dpct::dpct_free(devPtrAfterAdd, q_ct1)'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          10904
+    Length:          25
+    ReplacementText: 'dpct::dpct_free(devPtrAfterBias, q_ct1)'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          10960
+    Length:          25
+    ReplacementText: 'dpct::dpct_free(devPtrAfterConv, q_ct1)'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          11555
+    Length:          0
+    ReplacementText: ' try '
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          11575
+    Length:          0
+    ReplacementText: "\n    dpct::device_ext &dev_ct1 = dpct::get_current_device();\n    sycl::queue &q_ct1 = dev_ct1.in_order_queue();"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          11576
+    Length:          0
+    ReplacementText: "        /*\n        DPCT1064:843: Migrated cudaMalloc call is used in a macro/template definition and may not be valid for all macro/template uses. Adjust the code.\n        */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          11597
+    Length:          70
+    ReplacementText: 'DPCT_CHECK_ERROR(devPtr = (T_ELEM *)sycl::malloc_device((size_t)((n_elems) * sizeof(devPtr[0])), dpct::get_in_order_queue()))'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          11914
+    Length:          10
+    ReplacementText: 'DPCT_CHECK_ERROR(dpct::get_in_order_queue().memcpy'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          11978
+    Length:          24
+    ReplacementText: ''
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          12003
+    Length:          0
+    ReplacementText: '.wait())'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          12027
+    Length:          23
+    ReplacementText: 'DPCT_CHECK_ERROR(dpct::get_current_device().queues_wait_and_throw())'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          12058
+    Length:          0
+    ReplacementText: "\n    catch (sycl::exception const &exc) {\n      std::cerr << exc.what() << \"Exception caught at file:\" << __FILE__ << \", line:\" << __LINE__ << std::endl;\n      std::exit(1);\n    }"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          12131
+    Length:          0
+    ReplacementText: ' try '
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          12132
+    Length:          0
+    ReplacementText: "\n    dpct::device_ext &dev_ct1 = dpct::get_current_device();\n    sycl::queue &q_ct1 = dev_ct1.in_order_queue();"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          12162
+    Length:          0
+    ReplacementText: "        /*\n        DPCT1064:844: Migrated cudaMalloc call is used in a macro/template definition and may not be valid for all macro/template uses. Adjust the code.\n        */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          12183
+    Length:          60
+    ReplacementText: 'DPCT_CHECK_ERROR(devPtr = (T_ELEM *)sycl::malloc_device((n_elems) * sizeof(devPtr[0]), dpct::get_in_order_queue()))'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          12611
+    Length:          10
+    ReplacementText: 'DPCT_CHECK_ERROR(dpct::get_in_order_queue().memcpy'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          12675
+    Length:          24
+    ReplacementText: ''
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          12700
+    Length:          0
+    ReplacementText: '.wait())'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          12724
+    Length:          23
+    ReplacementText: 'DPCT_CHECK_ERROR(dpct::get_current_device().queues_wait_and_throw())'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          12755
+    Length:          0
+    ReplacementText: "\n    catch (sycl::exception const &exc) {\n      std::cerr << exc.what() << \"Exception caught at file:\" << __FILE__ << \", line:\" << __LINE__ << std::endl;\n      std::exit(1);\n    }"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          12823
+    Length:          0
+    ReplacementText: ' try '
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          12840
+    Length:          0
+    ReplacementText: "\n    dpct::device_ext &dev_ct1 = dpct::get_current_device();\n    sycl::queue &q_ct1 = dev_ct1.in_order_queue();"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          12841
+    Length:          0
+    ReplacementText: "        /*\n        DPCT1064:845: Migrated cudaMalloc call is used in a macro/template definition and may not be valid for all macro/template uses. Adjust the code.\n        */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          12862
+    Length:          57
+    ReplacementText: 'DPCT_CHECK_ERROR(devPtr = (T_ELEM *)sycl::malloc_device((size) * sizeof(devPtr[0]), dpct::get_in_order_queue()))'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          13197
+    Length:          10
+    ReplacementText: 'DPCT_CHECK_ERROR(dpct::get_in_order_queue().memcpy'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          13253
+    Length:          24
+    ReplacementText: ''
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          13278
+    Length:          0
+    ReplacementText: '.wait())'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          13302
+    Length:          23
+    ReplacementText: 'DPCT_CHECK_ERROR(dpct::get_current_device().queues_wait_and_throw())'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          13333
+    Length:          0
+    ReplacementText: "\n    catch (sycl::exception const &exc) {\n      std::cerr << exc.what() << \"Exception caught at file:\" << __FILE__ << \", line:\" << __LINE__ << std::endl;\n      std::exit(1);\n    }"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Offset:          13386
+    Length:          16
+    ReplacementText: 'dpct::dpct_free(devPtr, dpct::get_in_order_queue())'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+MainSourceFilesDigest:
+  - MainSourceFile:  '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/utils/helpers.h'
+    Digest:          dc33c9ab6a29facb0a61f048b37a7811
+DpctVersion:     2024.2.0
+MainHelperFileName: ''
+USMLevel:        ''
+FeatureMap:      {}
+CompileTargets:  {}
+OptionMap:
+  AnalysisScopePath:
+    Value:           '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend'
+    Specified:       false
+  AsyncHandler:
+    Value:           'false'
+    Specified:       false
+  BuildScript:
+    Value:           '1'
+    Specified:       true
+  CodePinEnabled:
+    Value:           'false'
+    Specified:       false
+  CommentsEnabled:
+    Value:           'false'
+    Specified:       false
+  CompilationsDir:
+    Value:           '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/build'
+    Specified:       true
+  CtadEnabled:
+    Value:           'false'
+    Specified:       false
+  EnablepProfiling:
+    Value:           'false'
+    Specified:       false
+  ExperimentalFlag:
+    Value:           '0'
+    Specified:       false
+  ExplicitNamespace:
+    Value:           '20'
+    Specified:       false
+  ExtensionDDFlag:
+    Value:           '0'
+    Specified:       false
+  ExtensionDEFlag:
+    Value:           '4294967295'
+    Specified:       false
+  HelperFuncPreferenceFlag:
+    Value:           '0'
+    Specified:       false
+  NDRangeDim:
+    Value:           '3'
+    Specified:       false
+  NoDRYPattern:
+    Value:           'false'
+    Specified:       false
+  OptimizeMigration:
+    Value:           'false'
+    Specified:       false
+  ProcessAll:
+    Value:           'false'
+    Specified:       false
+  RuleFile:
+    Value:           ''
+    ValueVec:
+      - '/opt/intel/oneapi/dpcpp-ct/2024.2/extensions/cmake_rules/cmake_script_migration_rule.yaml'
+    Specified:       false
+  SyclNamedLambda:
+    Value:           'false'
+    Specified:       false
+  UsmLevel:
+    Value:           '1'
+    Specified:       false
+...

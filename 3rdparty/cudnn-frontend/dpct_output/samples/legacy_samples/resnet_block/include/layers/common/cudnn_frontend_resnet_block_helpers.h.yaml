@@ -1,0 +1,435 @@
+---
+MainSourceFile:  '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/build/dpct_output/samples/legacy_samples/resnet_block/include/layers/common/cudnn_frontend_resnet_block_helpers.h'
+Replacements:
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/common/cudnn_frontend_resnet_block_helpers.h'
+    Offset:          14
+    Length:          0
+    ReplacementText: "#define DPCT_PROFILING_ENABLED\n#include <sycl/sycl.hpp>\n#include <dpct/dpct.hpp>\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/common/cudnn_frontend_resnet_block_helpers.h'
+    Offset:          96
+    Length:          26
+    ReplacementText: ''
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/common/cudnn_frontend_resnet_block_helpers.h'
+    Offset:          633
+    Length:          19
+    ReplacementText: 'dpct::dnnl::memory_format_tag'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/common/cudnn_frontend_resnet_block_helpers.h'
+    Offset:          693
+    Length:          17
+    ReplacementText: 'dpct::dnnl::memory_format_tag::nchw'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/common/cudnn_frontend_resnet_block_helpers.h'
+    Offset:          1288
+    Length:          19
+    ReplacementText: 'dpct::dnnl::memory_format_tag'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/common/cudnn_frontend_resnet_block_helpers.h'
+    Offset:          1800
+    Length:          15
+    ReplacementText: 'dpct::library_data_t'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/common/cudnn_frontend_resnet_block_helpers.h'
+    Offset:          1841
+    Length:          16
+    ReplacementText: 'dpct::library_data_t::real_float'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/common/cudnn_frontend_resnet_block_helpers.h'
+    Offset:          2203
+    Length:          22
+    ReplacementText: int
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/common/cudnn_frontend_resnet_block_helpers.h'
+    Offset:          2245
+    Length:          23
+    ReplacementText: '1'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/common/cudnn_frontend_resnet_block_helpers.h'
+    Offset:          2494
+    Length:          15
+    ReplacementText: 'dpct::library_data_t'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/common/cudnn_frontend_resnet_block_helpers.h'
+    Offset:          2521
+    Length:          15
+    ReplacementText: 'dpct::library_data_t::real_half'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/common/cudnn_frontend_resnet_block_helpers.h'
+    Offset:          2982
+    Length:          15
+    ReplacementText: 'dpct::library_data_t'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/common/cudnn_frontend_resnet_block_helpers.h'
+    Offset:          3020
+    Length:          15
+    ReplacementText: 'dpct::library_data_t'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/common/cudnn_frontend_resnet_block_helpers.h'
+    Offset:          5146
+    Length:          0
+    ReplacementText: "            /*\n            DPCT1007:903: Migration of CUDNN_DATA_FP8_E4M3 is not supported.\n            */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/common/cudnn_frontend_resnet_block_helpers.h'
+    Offset:          5233
+    Length:          16
+    ReplacementText: 'dpct::library_data_t::real_float'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/common/cudnn_frontend_resnet_block_helpers.h'
+    Offset:          6630
+    Length:          15
+    ReplacementText: 'dpct::library_data_t'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/common/cudnn_frontend_resnet_block_helpers.h'
+    Offset:          6664
+    Length:          15
+    ReplacementText: 'dpct::library_data_t'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/common/cudnn_frontend_resnet_block_helpers.h'
+    Offset:          8461
+    Length:          16
+    ReplacementText: 'dpct::library_data_t::real_float'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/common/cudnn_frontend_resnet_block_helpers.h'
+    Offset:          8479
+    Length:          0
+    ReplacementText: "            /*\n            DPCT1007:904: Migration of CUDNN_DATA_FP8_E4M3 is not supported.\n            */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/common/cudnn_frontend_resnet_block_helpers.h'
+    Offset:          11298
+    Length:          15
+    ReplacementText: 'dpct::library_data_t'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/common/cudnn_frontend_resnet_block_helpers.h'
+    Offset:          11336
+    Length:          15
+    ReplacementText: 'dpct::library_data_t'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/common/cudnn_frontend_resnet_block_helpers.h'
+    Offset:          12368
+    Length:          0
+    ReplacementText: "            /*\n            DPCT1007:905: Migration of CUDNN_DATA_FP8_E4M3 is not supported.\n            */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/common/cudnn_frontend_resnet_block_helpers.h'
+    Offset:          12448
+    Length:          16
+    ReplacementText: 'dpct::library_data_t::real_float'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/common/cudnn_frontend_resnet_block_helpers.h'
+    Offset:          13565
+    Length:          0
+    ReplacementText: "    /*\n    DPCT1007:906: Migration of CUDNN_GENSTATS_SUM_SQSUM is not supported.\n    */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/common/cudnn_frontend_resnet_block_helpers.h'
+    Offset:          13637
+    Length:          0
+    ReplacementText: "    /*\n    DPCT1007:907: Migration of CUDNN_BN_FINALIZE_STATISTICS_TRAINING is not supported.\n    */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/common/cudnn_frontend_resnet_block_helpers.h'
+    Offset:          13726
+    Length:          15
+    ReplacementText: 'dpct::library_data_t'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/common/cudnn_frontend_resnet_block_helpers.h'
+    Offset:          13768
+    Length:          16
+    ReplacementText: 'dpct::library_data_t::real_float'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/common/cudnn_frontend_resnet_block_helpers.h'
+    Offset:          14013
+    Length:          21
+    ReplacementText: int
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/common/cudnn_frontend_resnet_block_helpers.h'
+    Offset:          14058
+    Length:          19
+    ReplacementText: '1'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/common/cudnn_frontend_resnet_block_helpers.h'
+    Offset:          19834
+    Length:          13
+    ReplacementText: 'dpct::err1'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/common/cudnn_frontend_resnet_block_helpers.h'
+    Offset:          20313
+    Length:          0
+    ReplacementText: "            /*\n            DPCT1009:908: SYCL uses exceptions to report errors and does not use the error codes. The call was replaced by a placeholder string. You need to rewrite this code.\n            */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/common/cudnn_frontend_resnet_block_helpers.h'
+    Offset:          20398
+    Length:          27
+    ReplacementText: '"<Placeholder string>"'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/common/cudnn_frontend_resnet_block_helpers.h'
+    Offset:          20806
+    Length:          0
+    ReplacementText: "                       /*\n                       DPCT1009:909: SYCL uses exceptions to report errors and does not use the error codes. The call was replaced by a placeholder string. You need to rewrite this code.\n                       */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/common/cudnn_frontend_resnet_block_helpers.h'
+    Offset:          20829
+    Length:          27
+    ReplacementText: '"<Placeholder string>"'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/common/cudnn_frontend_resnet_block_helpers.h'
+    Offset:          21324
+    Length:          0
+    ReplacementText: "                       /*\n                       DPCT1009:910: SYCL uses exceptions to report errors and does not use the error codes. The call was replaced by a placeholder string. You need to rewrite this code.\n                       */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/common/cudnn_frontend_resnet_block_helpers.h'
+    Offset:          21347
+    Length:          27
+    ReplacementText: '"<Placeholder string>"'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/common/cudnn_frontend_resnet_block_helpers.h'
+    Offset:          21609
+    Length:          0
+    ReplacementText: "            /*\n            DPCT1009:911: SYCL uses exceptions to report errors and does not use the error codes. The call was replaced by a placeholder string. You need to rewrite this code.\n            */\n"
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/common/cudnn_frontend_resnet_block_helpers.h'
+    Offset:          21694
+    Length:          27
+    ReplacementText: '"<Placeholder string>"'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/common/cudnn_frontend_resnet_block_helpers.h'
+    Offset:          23111
+    Length:          13
+    ReplacementText: 'dpct::err1'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+  - FilePath:        '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/common/cudnn_frontend_resnet_block_helpers.h'
+    Offset:          23433
+    Length:          20
+    ReplacementText: '0'
+    ConstantFlag:    ''
+    ConstantOffset:  0
+    InitStr:         ''
+    NewHostVarName:  ''
+    BlockLevelFormatFlag: false
+MainSourceFilesDigest:
+  - MainSourceFile:  '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/samples/legacy_samples/resnet_block/include/layers/common/cudnn_frontend_resnet_block_helpers.h'
+    Digest:          8edfca991e1a8efe055f855ac40ede0a
+DpctVersion:     2024.2.0
+MainHelperFileName: ''
+USMLevel:        ''
+FeatureMap:      {}
+CompileTargets:  {}
+OptionMap:
+  AnalysisScopePath:
+    Value:           '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend'
+    Specified:       false
+  AsyncHandler:
+    Value:           'false'
+    Specified:       false
+  BuildScript:
+    Value:           '1'
+    Specified:       true
+  CodePinEnabled:
+    Value:           'false'
+    Specified:       false
+  CommentsEnabled:
+    Value:           'false'
+    Specified:       false
+  CompilationsDir:
+    Value:           '/home/intel/project/TransformerEnginev1.7-migration/3rdparty/cudnn-frontend/build'
+    Specified:       true
+  CtadEnabled:
+    Value:           'false'
+    Specified:       false
+  EnablepProfiling:
+    Value:           'false'
+    Specified:       false
+  ExperimentalFlag:
+    Value:           '0'
+    Specified:       false
+  ExplicitNamespace:
+    Value:           '20'
+    Specified:       false
+  ExtensionDDFlag:
+    Value:           '0'
+    Specified:       false
+  ExtensionDEFlag:
+    Value:           '4294967295'
+    Specified:       false
+  HelperFuncPreferenceFlag:
+    Value:           '0'
+    Specified:       false
+  NDRangeDim:
+    Value:           '3'
+    Specified:       false
+  NoDRYPattern:
+    Value:           'false'
+    Specified:       false
+  OptimizeMigration:
+    Value:           'false'
+    Specified:       false
+  ProcessAll:
+    Value:           'false'
+    Specified:       false
+  RuleFile:
+    Value:           ''
+    ValueVec:
+      - '/opt/intel/oneapi/dpcpp-ct/2024.2/extensions/cmake_rules/cmake_script_migration_rule.yaml'
+    Specified:       false
+  SyclNamedLambda:
+    Value:           'false'
+    Specified:       false
+  UsmLevel:
+    Value:           '1'
+    Specified:       false
+...
