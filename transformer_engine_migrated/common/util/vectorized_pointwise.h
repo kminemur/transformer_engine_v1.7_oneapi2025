@@ -225,7 +225,7 @@ void unary_kernel(const InputType *input,
   }
   if constexpr (is_fp8<OutputType>::value) {
     /* warp tile amax reduce*/
-    max = reduce_max<unary_kernel_threads / THREADS_PER_WARP>(max, warp_id, item_ct1, staging);
+    max = reduce_max<unary_kernel_threads / THREADS_PER_WARP>(max, warp_id, item_ct1);
 
     if (item_ct1.get_local_id(2) == 0 && amax != nullptr) {
         static_assert(std::is_same<ComputeType, float>::value);
