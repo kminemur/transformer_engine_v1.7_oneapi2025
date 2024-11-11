@@ -199,7 +199,7 @@ void unary_kernel(const InputType *input,
   if constexpr (is_fp8<OutputType>::value) {
       if (scale != nullptr) s = *scale;
   }
-  const int warp_id = threadIdx.x / THREADS_PER_WARP;
+  const int warp_id = item_ct1.get_local_id(2) / THREADS_PER_WARP;
 
   const size_t M = num_aligned_elements;
 
@@ -214,7 +214,7 @@ void unary_kernel(const InputType *input,
       ComputeType temp = OP(val, p);
       if constexpr (is_fp8<OutputType>::value) {
         __builtin_assume(max >= 0);
-        max = fmaxf(fabsf(temp), max);
+        max = sycl::fmax(sycl::fabsf(temp), max);
 
         temp = temp * s;
       }
@@ -225,7 +225,7 @@ void unary_kernel(const InputType *input,
   }
   if constexpr (is_fp8<OutputType>::value) {
     /* warp tile amax reduce*/
-    max = reduce_max<unary_kernel_threads / THREADS_PER_WARP>(max, warp_id);
+    max = reduce_max<unary_kernel_threads / THREADS_PER_WARP>(max, warp_id, item_ct1, staging);
 
     if (item_ct1.get_local_id(2) == 0 && amax != nullptr) {
         static_assert(std::is_same<ComputeType, float>::value);
