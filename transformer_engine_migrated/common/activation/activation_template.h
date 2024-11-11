@@ -5,7 +5,8 @@
  ************************************************************************/
 
 #include <transformer_engine/activation.h>
-#include <cuda_runtime.h>
+#include <sycl/sycl.hpp>
+#include <dpct/dpct.hpp>
 #include "../util/vectorized_pointwise.h"
 #include "../common.h"
 
@@ -13,10 +14,8 @@
 namespace transformer_engine {
 
 template <typename ComputeType, typename Param,
-                   ComputeType (*OP)(ComputeType, const Param&)>
-void act_fn(const Tensor &input,
-          Tensor *output,
-          cudaStream_t stream) {
+          ComputeType (*OP)(ComputeType, const Param &)>
+void act_fn(const Tensor &input, Tensor *output, dpct::queue_ptr stream) {
   CheckInputTensor(input, "act_lu_input");
   CheckOutputTensor(*output, "act_lu_output");
   NVTE_CHECK(input.data.shape == output->data.shape, "Input and output shapes must match.");
@@ -38,11 +37,9 @@ void act_fn(const Tensor &input,
 }
 
 template <typename ComputeType, typename Param,
-                   ComputeType (*OP)(ComputeType, const Param&)>
-void dact_fn(const Tensor &grad,
-           const Tensor &input,
-           Tensor *output,
-           cudaStream_t stream) {
+          ComputeType (*OP)(ComputeType, const Param &)>
+void dact_fn(const Tensor &grad, const Tensor &input, Tensor *output,
+             dpct::queue_ptr stream) {
   CheckInputTensor(input, "dact_lu_input");
   CheckInputTensor(grad, "dact_lu_input_grad");
   CheckOutputTensor(*output, "dact_lu_output");
@@ -68,10 +65,8 @@ void dact_fn(const Tensor &grad,
 }
 
 template <typename ComputeType, typename Param,
-                   ComputeType (*OP)(ComputeType, const Param&)>
-void gated_act_fn(const Tensor &input,
-           Tensor *output,
-           cudaStream_t stream) {
+          ComputeType (*OP)(ComputeType, const Param &)>
+void gated_act_fn(const Tensor &input, Tensor *output, dpct::queue_ptr stream) {
   CheckInputTensor(input, "gated_act_input");
   CheckOutputTensor(*output, "gated_act_output");
   NVTE_CHECK(input.data.shape.size() == 2, "Input must have 2 dimensions.");
@@ -98,12 +93,10 @@ void gated_act_fn(const Tensor &input,
 }
 
 template <typename ComputeType, typename Param,
-                   ComputeType (*OP1)(ComputeType, const Param&),
-                   ComputeType (*OP2)(ComputeType, const Param&)>
-void dgated_act_fn(const Tensor &grad,
-            const Tensor &input,
-            Tensor *output,
-            cudaStream_t stream) {
+          ComputeType (*OP1)(ComputeType, const Param &),
+          ComputeType (*OP2)(ComputeType, const Param &)>
+void dgated_act_fn(const Tensor &grad, const Tensor &input, Tensor *output,
+                   dpct::queue_ptr stream) {
   CheckInputTensor(grad, "dgated_act_grad");
   CheckInputTensor(input, "dgated_act_input");
   CheckOutputTensor(*output, "dgated_act_output");
