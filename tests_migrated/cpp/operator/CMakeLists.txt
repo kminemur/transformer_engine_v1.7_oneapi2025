@@ -3,20 +3,20 @@
 # See LICENSE for license information.
 
 add_executable(test_operator
-               test_qdq.dp.cpp
-               test_cast_transpose.dp.cpp
-               test_transpose.dp.cpp
-               test_cast_transpose_dbias.dp.cpp
-               test_cast_transpose_dbias_dgelu.dp.cpp
-               test_cast_transpose_dgeglu.dp.cpp
-               test_gelu.dp.cpp
-               test_geglu.dp.cpp
-               test_dgeglu.dp.cpp
-               test_layernorm.dp.cpp
-               test_rmsnorm.dp.cpp
-               test_multi_cast_transpose.dp.cpp
-               test_causal_softmax.dp.cpp
-               ../test_common.dp.cpp)
+               test_qdq.cpp
+               test_cast_transpose.cpp
+               test_transpose.cpp
+               test_cast_transpose_dbias.cpp
+               test_cast_transpose_dbias_dgelu.cpp
+               test_cast_transpose_dgeglu.cpp
+               test_gelu.cpp
+               test_geglu.cpp
+               test_dgeglu.cpp
+               test_layernorm.cpp
+               test_rmsnorm.cpp
+               test_multi_cast_transpose.cpp
+               test_causal_softmax.cpp
+               ../test_common.cpp)
 
 list(APPEND test_operator_LINKER_LIBS  GTest::gtest_main ${TE_LIB})
 
