@@ -31,8 +31,8 @@ endif()
 find_library(TE_LIB NAMES transformer_engine PATHS ${TE_LIB_PATH} ENV TE_LIB_PATH REQUIRED)
 
 message(STATUS "Found transformer_engine library: ${TE_LIB}")
-include_directories(../../transformer_engine/common/include)
-include_directories(../../transformer_engine/common)
+include_directories(../../transformer_engine_migrated/common/include)
+include_directories(../../transformer_engine_migrated/common)
 include_directories(${CMAKE_SOURCE_DIR})
 
 find_package(IntelSYCL REQUIRED)
