@@ -39,4 +39,4 @@ find_package(IntelSYCL REQUIRED)
 find_package(MKL REQUIRED)
 
 add_subdirectory(operator)
-add_subdirectory(util)
+#add_subdirectory(util)
