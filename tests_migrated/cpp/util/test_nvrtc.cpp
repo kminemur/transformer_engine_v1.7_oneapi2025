@@ -4,6 +4,8 @@
  * See LICENSE for license information.
  ************************************************************************/
 
+#include <sycl/sycl.hpp>
+#include <dpct/dpct.hpp>
 #include <stdexcept>
 #include <vector>
 
@@ -14,6 +16,8 @@
 using namespace transformer_engine;
 
 TEST(UtilTest, NVRTC) {
+  dpct::device_ext &dev_ct1 = dpct::get_current_device();
+  sycl::queue &q_ct1 = dev_ct1.in_order_queue();
   if (!rtc::is_enabled()) {
     GTEST_SKIP() << "NVRTC not enabled, skipping tests";
   }
@@ -21,8 +25,8 @@ TEST(UtilTest, NVRTC) {
   // GPU data buffer
   int *device_buffer;
   std::vector<int> host_buffer(2);
-  cudaMalloc((void**)&device_buffer, 2*sizeof(int));  // NOLINT(*)
-  cudaMemset(device_buffer, 0, 2*sizeof(int));
+  device_buffer = sycl::malloc_device<int>(2, q_ct1); // NOLINT(*)
+  q_ct1.memset(device_buffer, 0, 2 * sizeof(int)).wait();
 
   // CUDA kernel implementations
   const char code1[] = R"code(
@@ -60,9 +64,10 @@ __global__ void my_kernel(uint32_t *data) {
   EXPECT_FALSE(nvrtc_manager.is_compiled("my gtest kernel2"));
   EXPECT_NO_THROW(nvrtc_manager.launch("my gtest kernel1", 1, 1, 0, 0,
                                        device_buffer));
-  EXPECT_EQ(cudaMemcpy(host_buffer.data(), device_buffer, 2*sizeof(int),
-                       cudaMemcpyDeviceToHost),
-            cudaSuccess);
+  EXPECT_EQ(DPCT_CHECK_ERROR(
+                q_ct1.memcpy(host_buffer.data(), device_buffer, 2 * sizeof(int))
+                    .wait()),
+            0);
   EXPECT_EQ(host_buffer[0], 123);
   EXPECT_EQ(host_buffer[1], -456);
 
@@ -74,9 +79,10 @@ __global__ void my_kernel(uint32_t *data) {
   EXPECT_TRUE(nvrtc_manager.is_compiled("my gtest kernel1"));
   EXPECT_TRUE(nvrtc_manager.is_compiled("my gtest kernel2"));
   EXPECT_NO_THROW(nvrtc_manager.launch("my gtest kernel2", 1, 1, 0, 0, device_buffer));
-  EXPECT_EQ(cudaMemcpy(host_buffer.data(), device_buffer, 2*sizeof(int),
-                       cudaMemcpyDeviceToHost),
-            cudaSuccess);
+  EXPECT_EQ(DPCT_CHECK_ERROR(
+                q_ct1.memcpy(host_buffer.data(), device_buffer, 2 * sizeof(int))
+                    .wait()),
+            0);
   EXPECT_EQ(host_buffer[0], 789);
   EXPECT_EQ(host_buffer[1], 12);
 }
