@@ -100,32 +100,50 @@ Tensor::Tensor(const NVTEShape &shape, const DType type) {
     tensor_ = TensorWrapper(dptr, shape, type, amax, scale, scale_inv);
 }
 
-void Tensor::to_cpu() const {
+//void Tensor::to_cpu() const {
+void Tensor::to_cpu() {  
   const NVTEShape s = tensor_.shape();
   const size_t size = product(s) * typeToSize(tensor_.dtype());
-  cudaMemcpy(cpu_data_.get(), tensor_.dptr(), size, cudaMemcpyDeviceToHost);
+  queue_.submit([&](sycl::handler& cgh) {
+    cgh.memcpy(cpu_data_.get(), tensor_.dptr(), size);
+  });
+  queue_.wait();
+  
   if (isFp8Type(dtype())) {
-  cudaMemcpy(amax_cpu_data_.get(), tensor_.amax(), sizeof(float),
-             cudaMemcpyDeviceToHost);
-  cudaMemcpy(scale_cpu_data_.get(), tensor_.scale(), sizeof(float),
-             cudaMemcpyDeviceToHost);
-  cudaMemcpy(scale_inv_cpu_data_.get(), tensor_.scale_inv(), sizeof(float),
-             cudaMemcpyDeviceToHost);
+      queue_.submit([&](sycl::handler& cgh) {
+        cgh.memcpy(amax_cpu_data_.get(), tensor_.amax(), sizeof(float));
+      });
+      queue_.submit([&](sycl::handler& cgh) {
+        cgh.memcpy(scale_cpu_data_.get(), tensor_.scale(), sizeof(float));
+      });
+      queue_.submit([&](sycl::handler& cgh) {
+        cgh.memcpy(scale_inv_cpu_data_.get(), tensor_.scale_inv(), sizeof(float));
+      });
   }
+  queue_.wait();
 }
 
-void Tensor::from_cpu() const {
+//void Tensor::from_cpu() const {
+void Tensor::from_cpu() {
   const NVTEShape s = tensor_.shape();
   const size_t size = product(s) * typeToSize(tensor_.dtype());
-  cudaMemcpy(tensor_.dptr(), cpu_data_.get(), size, cudaMemcpyHostToDevice);
+  queue_.submit([&](sycl::handler& cgh) {
+    cgh.memcpy(tensor_.dptr(), cpu_data_.get(), size);
+  });
+  queue_.wait();
+
   if (isFp8Type(dtype())) {
-  cudaMemcpy(tensor_.amax(), amax_cpu_data_.get(), sizeof(float),
-             cudaMemcpyHostToDevice);
-  cudaMemcpy(tensor_.scale(), scale_cpu_data_.get(), sizeof(float),
-             cudaMemcpyHostToDevice);
-  cudaMemcpy(tensor_.scale_inv(), scale_inv_cpu_data_.get(), sizeof(float),
-             cudaMemcpyHostToDevice);
+      queue_.submit([&](sycl::handler& cgh) {
+        cgh.memcpy(tensor_.amax(), amax_cpu_data_.get(), sizeof(float));
+      });
+      queue_.submit([&](sycl::handler& cgh) {
+        cgh.memcpy(tensor_.scale(), scale_cpu_data_.get(), sizeof(float));
+      });
+      queue_.submit([&](sycl::handler& cgh) {
+        cgh.memcpy(tensor_.scale_inv(), scale_inv_cpu_data_.get(), sizeof(float));
+      });
   }
+  queue_.wait();
 }
 
 void Tensor::set_scale(float scale) {
