@@ -75,7 +75,9 @@ void performTestDGeGLU(const size_t N, const size_t H) {
 
   std::unique_ptr<OType[]> ref_output = std::make_unique<OType[]>(N * H * 2);
 
-  nvte_dgeglu(grad.data(), input.data(), output.data(), 0);
+  sycl::queue stream;
+  dpct::queue_ptr dpct_stream = &stream;
+  nvte_dgeglu(grad.data(), input.data(), output.data(), dpct_stream);
 
   compute_ref_dgeglu<IType, OType, CType>(grad.cpu_dptr<IType>(), input.cpu_dptr<IType>(),
                                           ref_output.get(), N, H);
