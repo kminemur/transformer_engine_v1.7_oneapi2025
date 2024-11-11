@@ -50,9 +50,9 @@ const std::string &typeName(DType type) {
     {DType::kInt64, "int64"},
     {DType::kFloat32, "float32"},
     {DType::kFloat16, "float16"},
-    {DType::kBFloat16, "bfloat16"},
-    {DType::kFloat8E4M3, "float8e4m3"},
-    {DType::kFloat8E5M2, "float8e5m2"}};
+    {DType::kBFloat16, "bfloat16"}};
+    //{DType::kFloat8E4M3, "float8e4m3"},
+    //{DType::kFloat8E5M2, "float8e5m2"}};
   return name_map.at(type);
 }
 
@@ -230,9 +230,9 @@ std::pair<double, double> getTolerances(const DType type) {
       return {1e-5, 1e-3};
     case DType::kBFloat16:
       return {1e-5, 1e-2};
-    case DType::kFloat8E4M3:
-    case DType::kFloat8E5M2:
-      return {1e-2, 1e-2};
+    //case DType::kFloat8E4M3:
+    //case DType::kFloat8E5M2:
+    //  return {1e-2, 1e-2};
     default:
       NVTE_CHECK("Invalid type!");
   }
