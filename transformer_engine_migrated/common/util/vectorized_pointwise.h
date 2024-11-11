@@ -519,7 +519,7 @@ void gated_act_kernel(const InputType *input,
     if constexpr (is_fp8<OutputType>::value) {
         if (scale != nullptr) s = *scale;
     }
-    const int warp_id = threadIdx.x / THREADS_PER_WARP;
+    const int warp_id = item_ct1.get_local_id(2) / THREADS_PER_WARP;
 
     loader0.load(id_x, n);
     loader1.load(id_x, n);
