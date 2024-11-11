@@ -2,18 +2,20 @@
 #
 # See LICENSE for license information.
 
-cmake_minimum_required(VERSION 3.18)
+cmake_minimum_required(VERSION 3.24)
 
-if(NOT DEFINED CMAKE_CUDA_ARCHITECTURES)
-  set(CMAKE_CUDA_ARCHITECTURES 70 80 90)
+if(NOT DEFINED CMAKE_SYCL_ARCHITECTURES)
+  set(CMAKE_SYCL_ARCHITECTURES 70 80 90)
 endif()
 
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CUDA_STANDARD 17)
-set(CMAKE_CUDA_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-project(transformer_engine_tests LANGUAGES CUDA CXX)
+project(transformer_engine_tests LANGUAGES  CXX)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fsycl")
+include(dpct.cmake)
 
 add_subdirectory(../../3rdparty/googletest ${PROJECT_BINARY_DIR}/googletest)
 
@@ -33,7 +35,8 @@ include_directories(../../transformer_engine/common/include)
 include_directories(../../transformer_engine/common)
 include_directories(${CMAKE_SOURCE_DIR})
 
-find_package(CUDAToolkit REQUIRED)
+find_package(IntelSYCL REQUIRED)
+find_package(MKL REQUIRED)
 
 add_subdirectory(operator)
 add_subdirectory(util)

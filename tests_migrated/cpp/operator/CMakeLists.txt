@@ -3,22 +3,22 @@
 # See LICENSE for license information.
 
 add_executable(test_operator
-               test_qdq.cu
-               test_cast_transpose.cu
-               test_transpose.cu
-               test_cast_transpose_dbias.cu
-               test_cast_transpose_dbias_dgelu.cu
-               test_cast_transpose_dgeglu.cu
-               test_gelu.cu
-               test_geglu.cu
-               test_dgeglu.cu
-               test_layernorm.cu
-               test_rmsnorm.cu
-               test_multi_cast_transpose.cu
-               test_causal_softmax.cu
-               ../test_common.cu)
+               test_qdq.dp.cpp
+               test_cast_transpose.dp.cpp
+               test_transpose.dp.cpp
+               test_cast_transpose_dbias.dp.cpp
+               test_cast_transpose_dbias_dgelu.dp.cpp
+               test_cast_transpose_dgeglu.dp.cpp
+               test_gelu.dp.cpp
+               test_geglu.dp.cpp
+               test_dgeglu.dp.cpp
+               test_layernorm.dp.cpp
+               test_rmsnorm.dp.cpp
+               test_multi_cast_transpose.dp.cpp
+               test_causal_softmax.dp.cpp
+               ../test_common.dp.cpp)
 
-list(APPEND test_operator_LINKER_LIBS CUDA::cudart GTest::gtest_main ${TE_LIB})
+list(APPEND test_operator_LINKER_LIBS  GTest::gtest_main ${TE_LIB})
 
 target_link_libraries(test_operator PUBLIC ${test_operator_LINKER_LIBS})
 target_compile_options(test_operator PRIVATE -O2)
