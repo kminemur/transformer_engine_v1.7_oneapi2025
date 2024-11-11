@@ -47,8 +47,8 @@ using int64 = int64_t;
 using fp32 = float;
 using fp16 = sycl::half;
 using bf16 = sycl::ext::oneapi::bfloat16;
-using fp8e4m3 = __nv_fp8_e4m3;
-using fp8e5m2 = __nv_fp8_e5m2;
+//using fp8e4m3 = __nv_fp8_e4m3;
+//using fp8e5m2 = __nv_fp8_e5m2;
 
 template <typename T>
 struct TypeInfo{
@@ -57,9 +57,9 @@ struct TypeInfo{
                              int64,
                              fp32,
                              fp16,
-                             bf16,
-                             fp8e4m3,
-                             fp8e5m2>;
+                             bf16>;
+                             //fp8e4m3,
+                             //fp8e5m2>;
 
     template <typename U, DType current>
     struct Helper {
@@ -236,6 +236,11 @@ bool isFp8Type(DType type);
                 {__VA_ARGS__} \
             } \
         break; \
+        default: \
+            NVTE_ERROR("Invalid type."); \
+    }
+
+/*
         case DType::kFloat8E4M3: \
             { \
                 using type = fp8e4m3; \
@@ -248,6 +253,4 @@ bool isFp8Type(DType type);
                 {__VA_ARGS__} \
             } \
         break; \
-        default: \
-            NVTE_ERROR("Invalid type."); \
-    }
+*/
