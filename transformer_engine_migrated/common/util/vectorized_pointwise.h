@@ -259,7 +259,7 @@ void unary_grad_kernel(const InputTypeGrad *grad,
   if constexpr (is_fp8<OutputType>::value) {
       if (scale != nullptr) s = *scale;
   }
-  const int warp_id = threadIdx.x / THREADS_PER_WARP;
+  const int warp_id = item_ct1.get_local_id(2) / THREADS_PER_WARP;
 
   const size_t M = num_aligned_elements;
 
