@@ -210,6 +210,10 @@ struct TypeInfo{
 #define TRANSFORMER_ENGINE_TYPE_SWITCH_FP8ONLY(dtype, type, ...) \
     switch (dtype) { \
         using namespace transformer_engine; \
+        default: \
+            NVTE_ERROR("Invalid type."); \
+    }
+  /*
         case DType::kFloat8E5M2: \
             { \
                 using type = fp8e5m2; \
@@ -222,10 +226,8 @@ struct TypeInfo{
                 {__VA_ARGS__} \
             } \
         break; \
-        default: \
-            NVTE_ERROR("Invalid type."); \
-    }
-
+*/
+  
 #define TRANSFORMER_ENGINE_TYPE_SWITCH_INPUT(dtype, type, ...) \
     switch (dtype) { \
         using namespace transformer_engine; \
@@ -247,16 +249,19 @@ struct TypeInfo{
                 {__VA_ARGS__} \
             } \
         break; \
+        default: \
+            NVTE_ERROR("Invalid type."); \
+    }
+
+  /*
         case DType::kFloat8E5M2: \
         case DType::kFloat8E4M3: \
             { \
                 NVTE_ERROR("FP8 type not instantiated for input."); \
             } \
         break; \
-        default: \
-            NVTE_ERROR("Invalid type."); \
-    }
-
+ */
+  
 #define TRANSFORMER_ENGINE_TYPE_SWITCH_16BIT(dtype, type, ...)                 \
   switch (dtype)                                                               \
     {                                                                          \
